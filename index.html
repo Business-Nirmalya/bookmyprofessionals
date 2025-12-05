@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyProfessionals.com | Hire Trusted Professionals via WhatsApp</title>
+    <meta name="description" content="Book professional services via WhatsApp: makeup artists, event planners, tutors, electricians, plumbers, carpenters, and more. Instant booking, verified professionals.">
+    <meta name="keywords" content="professional services, makeup artist, event planner, tutor, electrician, plumber, carpenter, WhatsApp booking, home services, blog, tips, guides">
+    <meta name="author" content="BookMyProfessionals">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BookMyProfessionals">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/maintenance.png">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --primary-blue: #2563eb;
+            --secondary-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --sky-blue: #93c5fd;
+            --navy-blue: #1e40af;
+            --dark-blue: #1e3a8a;
+            
+            /* Neutral Colors */
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #475569;
+            
+            /* Accent Colors */
+            --whatsapp-green: #25D366;
+            --accent-pink: #ec4899;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            
+            /* Design Elements */
+            --border-radius: 10px;
+            --box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-success {
+            background-color: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-success:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--navy-blue);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(30, 58, 138, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-cta {
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 80px 0;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--navy-blue);
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary-blue);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* ===== CATEGORIES SECTION ===== */
+        .categories {
+            background-color: var(--light-gray);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.15);
+            border-color: var(--light-blue);
+        }
+
+        .category-card.highlight {
+            border-top: 4px solid var(--accent-pink);
+        }
+
+        .category-card.highlight:nth-child(2) {
+            border-top-color: var(--accent-purple);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .category-card.highlight .category-icon {
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+        }
+
+        .category-card.highlight:nth-child(2) .category-icon {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%);
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--navy-blue);
+        }
+
+        .category-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .view-services-btn {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .category-card.highlight .view-services-btn {
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+        }
+
+        .category-card.highlight:nth-child(2) .view-services-btn {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%);
+        }
+
+        .view-services-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            background-color: var(--white);
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 30px;
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
+            color: var(--white);
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .gallery-main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-main-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-blue) 100%);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-main-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(30, 64, 175, 0.2);
+        }
+
+        .gallery-main-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-main-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .gallery-main-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .gallery-main-content p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .gallery-category-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--navy-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-gallery-items {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-light);
+            font-style: italic;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        /* Gallery Modal for Larger View */
+        .gallery-view-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 58, 138, 0.95);
+            z-index: 2001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery-modal-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+            text-align: center;
+        }
+
+        .gallery-modal-icon {
+            font-size: 4rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .gallery-modal-title {
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+
+        .gallery-modal-desc {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .gallery-modal-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--navy-blue);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .gallery-modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        /* ===== BLOG SECTION ===== */
+        .blog-section {
+            background-color: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.15);
+        }
+
+        .blog-image-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--medium-gray);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--navy-blue);
+            gap: 8px;
+        }
+
+        .blog-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ===== BLOG POST PAGE STYLES ===== */
+        .blog-post-page {
+            padding: 80px 0;
+            background-color: var(--white);
+            display: none;
+        }
+
+        .blog-post-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-post-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .blog-post-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .blog-post-title {
+            font-size: 2.2rem;
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .blog-post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .blog-post-content h2 {
+            font-size: 1.6rem;
+            color: var(--navy-blue);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.3rem;
+            color: var(--navy-blue);
+            margin: 25px 0 10px;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+
+        .blog-post-content ul, .blog-post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+
+        .blog-post-content blockquote {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .blog-post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .blog-post-cta {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .blog-post-cta h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+        }
+
+        .blog-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .prev-post, .next-post {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .prev-post:hover, .next-post:hover {
+            color: var(--navy-blue);
+            gap: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .back-to-blog:hover {
+            color: var(--navy-blue);
+            gap: 12px;
+        }
+
+        /* ===== BLOG FILTERS ===== */
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .blog-filter-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 30px;
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .blog-filter-btn:hover,
+        .blog-filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .services-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 58, 138, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .services-modal-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-blue);
+            background-color: var(--light-gray);
+        }
+
+        .modal-title {
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--navy-blue);
+            font-size: 1.8rem;
+        }
+
+        .modal-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--medium-gray);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .modal-tab.active {
+            color: var(--primary-blue);
+        }
+
+        .modal-tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+        }
+
+        .modal-tab-content {
+            display: none;
+        }
+
+        .modal-tab-content.active {
+            display: block;
+        }
+
+        /* Services List */
+        .service-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .service-group h3 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .sub-service-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .sub-service-item {
+            background-color: var(--white);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .sub-service-item p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery in Modal */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 150px;
+            position: relative;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2);
+        }
+
+        .gallery-item i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-caption {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .gallery-caption h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .no-photos {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            background-color: var(--white);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.15);
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 15px;
+        }
+
+        .step:nth-child(2) .step-icon {
+            background: linear-gradient(135deg, var(--whatsapp-green) 0%, #1da851 100%);
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--navy-blue);
+        }
+
+        /* ===== WHATSAPP BOOKING SECTION ===== */
+        .whatsapp-booking {
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .whatsapp-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-booking h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-booking p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .whatsapp-note {
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(30, 64, 175, 0.08);
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-top: 3px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 5px;
+            color: var(--navy-blue);
+        }
+
+        .contact-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-item small {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-section p {
+            color: #cbd5e1;
+            margin: 10px 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Tablet Devices (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero .container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-main-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Mobile Devices (max-width: 768px) */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(30, 64, 175, 0.1);
+            }
+            
+            .nav-links.active li {
+                margin: 10px 0;
+            }
+            
+            .nav-cta.active {
+                display: block;
+                position: absolute;
+                top: calc(100% + 160px);
+                left: 20px;
+                width: calc(100% - 40px);
+            }
+            
+            /* Hero Section */
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            /* Sections */
+            section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            /* Category Cards */
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .category-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            /* Gallery Section */
+            .gallery-main-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .gallery-main-item {
+                height: 220px;
+            }
+            
+            .gallery-filter {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+            
+            /* Blog Section */
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .blog-image-container {
+                height: 180px;
+            }
+            
+            .blog-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .blog-filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+            
+            /* Blog Post */
+            .blog-post-title {
+                font-size: 1.6rem;
+            }
+            
+            .blog-post-image {
+                height: 300px;
+            }
+            
+            .blog-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            /* Modal */
+            .modal-tabs {
+                flex-direction: column;
+            }
+            
+            .modal-tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Small Mobile Devices (max-width: 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-main-item {
+                height: 200px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-image-container {
+                height: 160px;
+            }
+            
+            .blog-post-title {
+                font-size: 1.4rem;
+            }
+            
+            .blog-post-image {
+                height: 250px;
+            }
+            
+            .blog-post-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-booking h2 {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .services-modal-content {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Very Small Devices (max-width: 360px) */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .category-card {
+                padding: 20px 15px;
+            }
+            
+            .blog-content {
+                padding: 20px 15px;
+            }
+            
+            .btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Services Modal -->
+    <div class="services-modal" id="servicesModal">
+        <div class="services-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title" id="modalCategoryTitle">Services</h2>
+            
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="services">Services List</button>
+                <button class="modal-tab" data-tab="gallery">Work Gallery</button>
+            </div>
+            
+            <div class="modal-tab-content active" id="servicesTab">
+                <div class="services-container" id="servicesContainer">
+                    <!-- Services will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="modal-tab-content" id="galleryTab">
+                <div class="gallery-container" id="galleryContainer">
+                    <!-- Gallery will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery View Modal -->
+    <div class="gallery-view-modal" id="galleryViewModal">
+        <div class="gallery-modal-content">
+            <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+            <div class="gallery-modal-icon" id="galleryModalIcon"></div>
+            <h3 class="gallery-modal-title" id="galleryModalTitle"></h3>
+            <p class="gallery-modal-desc" id="galleryModalDesc"></p>
+            <div class="gallery-modal-category" id="galleryModalCategory"></div>
+            <div class="gallery-modal-actions">
+                <button class="btn btn-secondary" onclick="closeGalleryModal()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+                <button class="btn btn-primary" onclick="bookFromGallery()" id="galleryBookBtn">
+                    <i class="fab fa-whatsapp"></i> Book This Service
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>BookMyProfessionals</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-primary nav-cta">
+                    Book via WhatsApp
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Book Trusted <span>Professionals</span> Instantly</h1>
+                <p>Find makeup artists, event planners, tutors, electricians, plumbers, carpenters, interior designers, priests for pujas, and many more professionals via WhatsApp.</p>
+                <div class="cta-buttons">
+                    <a href="#categories" class="btn btn-primary">Browse Services</a>
+                    <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>1000+</h3>
+                        <p>Services</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Booking Support</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Services - Book makeup artists, event planners, tutors, and more" title="Professional Services Booking">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
+            <p class="section-subtitle">Browse and book trusted professionals by category. Click any category to view all services and work gallery.</p>
+            
+            <div class="category-grid">
+                <!-- Categories will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work Gallery</h2>
+            <p class="section-subtitle">Explore our completed projects and see the quality of our professional services</p>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter" id="galleryFilter">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <!-- Filter buttons will be loaded by JavaScript -->
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-main-grid" id="galleryMainGrid">
+                <!-- Gallery items will be loaded by JavaScript -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Book Similar Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <h2 class="section-title">Professional Tips & Insights</h2>
+            <p class="section-subtitle">Read our latest articles on professional services, maintenance tips, and industry insights</p>
+            
+            <!-- Blog Filters -->
+            <div class="blog-filters" id="blogFilters">
+                <button class="blog-filter-btn active" data-category="all">All Articles</button>
+                <button class="blog-filter-btn" data-category="makeup">Makeup & Beauty</button>
+                <button class="blog-filter-btn" data-category="events">Event Planning</button>
+                <button class="blog-filter-btn" data-category="tutoring">Tutoring</button>
+                <button class="blog-filter-btn" data-category="home">Home Services</button>
+                <button class="blog-filter-btn" data-category="tips">Tips & Guides</button>
+            </div>
+            
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be loaded by JavaScript -->
+            </div>
+            
+            <div class="blog-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Get Professional Advice
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Page -->
+    <section class="blog-post-page" id="blogPostPage">
+        <div class="container">
+            <a href="#blog" class="back-to-blog" id="backToBlog">
+                <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
+            
+            <div class="blog-post-container">
+                <div class="blog-post-header">
+                    <span class="blog-post-category" id="postCategory"></span>
+                    <h1 class="blog-post-title" id="postTitle"></h1>
+                    <div class="blog-post-meta">
+                        <span><i class="far fa-calendar"></i> <span id="postDate"></span></span>
+                        <span><i class="far fa-clock"></i> <span id="postReadTime"></span> read</span>
+                        <span><i class="far fa-eye"></i> <span id="postViews"></span> views</span>
+                    </div>
+                </div>
+                
+                <img id="postImage" class="blog-post-image" src="" alt="">
+                
+                <div class="blog-post-content" id="postContent">
+                    <!-- Content will be loaded here -->
+                </div>
+                
+                <div class="blog-post-cta">
+                    <h3>Need Professional Help?</h3>
+                    <p>Book our verified professionals for expert service and guidance.</p>
+                    <a href="https://wa.me/917008743587?text=I%20read%20your%20blog%20post%20and%20need%20professional%20help" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat with Expert
+                    </a>
+                </div>
+                
+                <div class="blog-navigation">
+                    <a href="#" class="prev-post" id="prevPost">
+                        <i class="fas fa-arrow-left"></i> Previous Article
+                    </a>
+                    <a href="#" class="next-post" id="nextPost">
+                        Next Article <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Book a professional in 3 simple steps</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Browse & Select</h3>
+                    <p>Find the right service category for your need</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Contact via WhatsApp</h3>
+                    <p>Send us your requirement on WhatsApp</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Get Confirmation</h3>
+                    <p>We'll schedule and confirm your booking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Booking Section -->
+    <section class="whatsapp-booking">
+        <div class="container">
+            <div class="whatsapp-content">
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h2>Instant Booking via WhatsApp</h2>
+                <p>Simply send us a message on WhatsApp with your requirement. We'll match you with the best professional and schedule your service.</p>
+                <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com" class="btn btn-success" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Click to Chat on WhatsApp
+                </a>
+                <p class="whatsapp-note"><strong>Phone:</strong> +91 70087 43587 (Click to chat)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch for bookings or inquiries</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Booking & Support</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp Booking</h4>
+                            <p><a href="https://wa.me/917008743587" target="_blank">+91 70087 43587</a></p>
+                            <small>Click to chat instantly</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone Call</h4>
+                            <p><a href="tel:+917008743587">+91 70087 43587</a></p>
+                            <small>Monday to Sunday, 8 AM to 9 PM</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:bookings@bookmyprofessionals.com">bookings@bookmyprofessionals.com</a></p>
+                            <small>Response within 24 hours</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Quick Inquiry Form</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Select Service Category</option>
+                                <!-- Options will be loaded by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder="Describe your requirement..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="#" class="logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>BookMyProfessionals</span>
+                    </a>
+                    <p>Your trusted platform for booking verified professionals instantly via WhatsApp.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/917008743587" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Popular Services</h3>
+                    <ul id="popularServices">
+                        <!-- Popular services will be loaded by JavaScript -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917008743587" target="_blank">+91 70087 43587</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+917008743587">70087 43587</a></li>
+                        <li><i class="fas fa-envelope"></i> bookings@bookmyprofessionals.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Service available across India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BookMyProfessionals.com. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== CONFIGURATION =====
+        const CONFIG = {
+            whatsappNumber: "917008743587",
+            categories: [
+                {id: "makeup", name: "Makeup & Beauty", icon: "fa-spa", desc: "Bridal, party, hairstyling, mehendi", highlight: true},
+                {id: "events", name: "Event & Wedding", icon: "fa-glass-cheers", desc: "Planning, makeup, catering, decoration", highlight: true},
+                {id: "tutoring", name: "Tutoring Services", icon: "fa-graduation-cap", desc: "Academic, skill-based, online/offline"},
+                {id: "plumbing", name: "Plumbing", icon: "fa-faucet", desc: "Installation, repair, maintenance"},
+                {id: "electrical", name: "Electrical", icon: "fa-bolt", desc: "Wiring, installations, electrical work"},
+                {id: "carpentry", name: "Carpentry", icon: "fa-hammer", desc: "Woodwork, furniture, installation"},
+                {id: "painting", name: "Painting", icon: "fa-paint-brush", desc: "Interior, exterior, decorative"},
+                {id: "cleaning", name: "Cleaning", icon: "fa-broom", desc: "House, deep, move-in/out"},
+                {id: "hvac", name: "HVAC", icon: "fa-snowflake", desc: "Heating, ventilation, AC"},
+                {id: "roofing", name: "Roofing", icon: "fa-home", desc: "Installation, repair, maintenance"},
+                {id: "puja", name: "Puja Services", icon: "fa-hands-praying", desc: "Religious ceremonies"},
+                {id: "handyman", name: "Handyman", icon: "fa-tools", desc: "Assembly, repairs, installations"}
+            ]
+        };
+
+        // ===== SERVICES DATA =====
+        const SERVICES = {
+            makeup: [
+                {service: "Bridal Makeup Artist", subservice: "Airbrush, traditional makeup"},
+                {service: "Party Makeup Artist", subservice: "Engagement, reception makeup"},
+                {service: "Hairstyling", subservice: "Bridal, party hairstyles"},
+                {service: "Mehendi Artist", subservice: "Bridal, party mehendi designs"}
+            ],
+            events: [
+                {service: "Event Planner", subservice: "Full wedding planning"},
+                {service: "Wedding Coordinator", subservice: "Day-of coordination"},
+                {service: "Bridal Makeup Artist", subservice: "Airbrush, HD makeup"},
+                {service: "Wedding Catering", subservice: "Full wedding meals"}
+            ],
+            tutoring: [
+                {service: "Academic Tutoring", subservice: "Math, Science, English, all subjects"},
+                {service: "Online Tutoring", subservice: "Virtual classes via Zoom/Meet"},
+                {service: "Skill Development", subservice: "Coding, music, art, sports"},
+                {service: "Test Preparation", subservice: "Competitive exams, entrance tests"}
+            ],
+            plumbing: [
+                {service: "Plumbing Installation & Repair", subservice: "General plumbing works"},
+                {service: "Drain Cleaning / Unclogging", subservice: "Sink, toilet, shower, main line"},
+                {service: "Leak Detection & Repair", subservice: "Pipe, faucet, wall leaks"},
+                {service: "Water Heater Installation", subservice: "Tankless, gas, electric"}
+            ],
+            electrical: [
+                {service: "Electrical Wiring & Rewiring", subservice: "New construction or old house rewiring"},
+                {service: "Lighting Installation", subservice: "Indoor, outdoor, recessed lighting"},
+                {service: "Outlet & Switch Installation", subservice: "GFCI, USB outlets"},
+                {service: "Circuit Breaker Upgrade", subservice: "200A, 400A upgrades"}
+            ],
+            carpentry: [
+                {service: "Custom Furniture Making", subservice: "Tables, beds, cabinets"},
+                {service: "Door Installation / Repair", subservice: "Interior & exterior doors"},
+                {service: "Window Installation / Repair", subservice: "Professional window work"},
+                {service: "Shelving & Cabinets", subservice: "Built-in storage solutions"}
+            ],
+            painting: [
+                {service: "Interior Painting", subservice: "Walls, ceilings, trim"},
+                {service: "Exterior Painting", subservice: "House, siding, trim"},
+                {service: "Wallpaper Installation", subservice: "Professional wallpaper work"},
+                {service: "Decorative Painting", subservice: "Faux finish, murals"}
+            ],
+            cleaning: [
+                {service: "Regular House Cleaning", subservice: "Weekly, bi-weekly, monthly"},
+                {service: "Deep Cleaning", subservice: "One-time thorough cleaning"},
+                {service: "Move-In / Move-Out Cleaning", subservice: "Complete property cleaning"},
+                {service: "Carpet Cleaning", subservice: "Steam or dry cleaning"}
+            ],
+            hvac: [
+                {service: "AC Installation / Repair", subservice: "Central, ductless mini-split"},
+                {service: "Furnace / Heater Installation", subservice: "Gas, electric, boiler"},
+                {service: "Duct Cleaning & Sealing", subservice: "Professional duct work"},
+                {service: "Thermostat Installation", subservice: "Smart thermostats"}
+            ],
+            roofing: [
+                {service: "Roof Installation", subservice: "Shingles, metal, tile"},
+                {service: "Roof Repair & Leak Fixing", subservice: "Professional repairs"},
+                {service: "Gutter Installation", subservice: "Complete gutter systems"},
+                {service: "Chimney Repair", subservice: "Chimney maintenance"}
+            ],
+            puja: [
+                {service: "Pandit for Puja", subservice: "Hindi, Tamil, Telugu pandit"},
+                {service: "Griha Pravesh Puja", subservice: "House warming ceremony"},
+                {service: "Satyanarayan Puja", subservice: "Traditional ceremony"},
+                {service: "Wedding Puja & Rituals", subservice: "All pre-wedding pujas"}
+            ],
+            handyman: [
+                {service: "Furniture Assembly", subservice: "IKEA, Wayfair, etc."},
+                {service: "TV Wall Mounting", subservice: "Professional mounting"},
+                {service: "Minor Repairs", subservice: "Doors, locks, shelves"},
+                {service: "Picture & Mirror Hanging", subservice: "Professional hanging"}
+            ]
+        };
+
+        // ===== BLOG DATA =====
+        const BLOG_POSTS = [
+            {
+                id: 1,
+                title: "How to Choose the Perfect Makeup Artist for Your Wedding",
+                excerpt: "Discover 7 essential factors to consider when selecting a wedding makeup artist. Professional tips for flawless bridal makeup.",
+                content: `
+                    <h2>Why Choosing the Right Makeup Artist Matters</h2>
+                    <p>Your wedding day is one of the most important days of your life, and your appearance plays a crucial role in how you feel and how you're remembered. The right makeup artist can enhance your natural beauty and ensure you look flawless in photos that will last a lifetime.</p>
+                    
+                    <h2>1. Review Their Portfolio Thoroughly</h2>
+                    <p>A professional makeup artist should have a comprehensive portfolio showcasing their work. Look for:</p>
+                    <ul>
+                        <li><strong>Diversity in skin tones:</strong> Can they work with different complexions?</li>
+                        <li><strong>Style consistency:</strong> Do they have a signature style that matches your vision?</li>
+                        <li><strong>Attention to detail:</strong> Check close-up photos for precision</li>
+                        <li><strong>Before/after shots:</strong> Real transformations tell the true story</li>
+                    </ul>
+                    
+                    <h2>2. Schedule a Trial Session</h2>
+                    <p>Never book a makeup artist without a trial. This is your opportunity to:</p>
+                    <ul>
+                        <li>Test their skills firsthand</li>
+                        <li>See how makeup lasts throughout the day</li>
+                        <li>Communicate your preferences clearly</li>
+                        <li>Check for any allergic reactions to products</li>
+                    </ul>
+                    
+                    <blockquote>Pro Tip: Schedule your trial at least 2-3 months before your wedding. Bring photos of makeup looks you like and wear a white top to simulate how makeup will look against your wedding attire.</blockquote>
+                    
+                    <h2>3. Verify Professional Experience</h2>
+                    <p>Ask these important questions:</p>
+                    <ul>
+                        <li>How many years of professional experience do you have?</li>
+                        <li>How many weddings have you worked on?</li>
+                        <li>Do you have formal training or certifications?</li>
+                        <li>Can you provide references from past clients?</li>
+                    </ul>
+                    
+                    <h2>4. Understand the Pricing Structure</h2>
+                    <p>Make sure you understand exactly what's included:</p>
+                    <ul>
+                        <li>Trial session cost (usually separate)</li>
+                        <li>Travel fees if applicable</li>
+                        <li>Touch-up services during the event</li>
+                        <li>Additional charges for extra people</li>
+                    </ul>
+                    
+                    <h2>5. Check Their Professionalism</h2>
+                    <p>A great makeup artist is also a professional businessperson. Look for:</p>
+                    <ul>
+                        <li>Prompt responses to inquiries</li>
+                        <li>Clear contract with terms and conditions</li>
+                        <li>Professional liability insurance</li>
+                        <li>Backup plan for emergencies</li>
+                    </ul>
+                    
+                    <h2>6. Consider Their Availability</h2>
+                    <p>Popular makeup artists book up quickly, especially during wedding season. Ideally, you should book 6-12 months in advance for peak season dates.</p>
+                    
+                    <h2>7. Trust Your Instincts</h2>
+                    <p>Finally, choose someone you feel comfortable with. You'll be spending several hours with this person on one of the most important days of your life. Personal chemistry matters!</p>
+                    
+                    <h2>Final Checklist</h2>
+                    <ul>
+                        <li>✓ Portfolio reviewed and impressed</li>
+                        <li>✓ Trial session completed successfully</li>
+                        <li>✓ References checked and verified</li>
+                        <li>✓ Contract reviewed and signed</li>
+                        <li>✓ Deposit paid to secure date</li>
+                        <li>✓ Final consultation scheduled</li>
+                    </ul>
+                    
+                    <p>By following these steps, you'll find a makeup artist who not only has the technical skills but also understands your vision and can bring it to life on your special day.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                category: "makeup",
+                date: "2023-10-15",
+                readTime: "8 min read",
+                views: "1,245"
+            },
+            {
+                id: 2,
+                title: "Essential Plumbing Maintenance Every Homeowner Should Know",
+                excerpt: "Prevent costly plumbing disasters with these simple monthly checks. Learn what to look for and when to call a professional.",
+                content: `
+                    <h2>The Importance of Regular Plumbing Maintenance</h2>
+                    <p>A small leak ignored today can become a major disaster tomorrow. Regular plumbing maintenance can save you thousands in repairs and prevent water damage to your home.</p>
+                    
+                    <h2>Monthly Plumbing Checks</h2>
+                    
+                    <h3>1. Inspect for Leaks</h3>
+                    <p>Check these common areas monthly:</p>
+                    <ul>
+                        <li><strong>Under sinks:</strong> Look for moisture, stains, or mold</li>
+                        <li><strong>Around toilets:</strong> Check base and supply line</li>
+                        <li><strong>Water heater:</strong> Look for pooling water or rust</li>
+                        <li><strong>Appliances:</strong> Check washing machine and dishwasher connections</li>
+                    </ul>
+                    
+                    <h3>2. Test Water Pressure</h3>
+                    <p>Low water pressure can indicate mineral buildup, while high pressure can damage pipes. Ideal pressure is 40-60 PSI.</p>
+                    
+                    <h3>3. Check Toilet Functionality</h3>
+                    <p>Listen for running water and check for slow leaks by adding food coloring to the tank. If color appears in the bowl without flushing, you have a leak.</p>
+                    
+                    <h2>Seasonal Maintenance Tasks</h2>
+                    
+                    <h3>Spring (March-May)</h3>
+                    <ul>
+                        <li>Inspect outdoor faucets after winter</li>
+                        <li>Check sprinkler systems for damage</li>
+                        <li>Clean gutters and downspouts</li>
+                    </ul>
+                    
+                    <h3>Summer (June-August)</h3>
+                    <ul>
+                        <li>Check for tree roots near sewer lines</li>
+                        <li>Inspect swimming pool plumbing</li>
+                        <li>Test sump pump if you have one</li>
+                    </ul>
+                    
+                    <h3>Fall (September-November)</h3>
+                    <ul>
+                        <li>Winterize outdoor faucets</li>
+                        <li>Insulate exposed pipes</li>
+                        <li>Drain and store garden hoses</li>
+                    </ul>
+                    
+                    <h3>Winter (December-February)</h3>
+                    <ul>
+                        <li>Keep cabinet doors open to allow warm air circulation</li>
+                        <li>Let faucets drip during extreme cold</li>
+                        <li>Know where your main water shut-off valve is located</li>
+                    </ul>
+                    
+                    <h2>When to DIY vs Call a Professional</h2>
+                    
+                    <h3>DIY Tasks (Basic Skills Required)</h3>
+                    <ul>
+                        <li>Replacing faucet washers</li>
+                        <li>Cleaning showerheads</li>
+                        <li>Unclogging simple drain blockages</li>
+                        <li>Replacing toilet flappers</li>
+                    </ul>
+                    
+                    <h3>Call a Professional</h3>
+                    <ul>
+                        <li>Major leaks or pipe bursts</li>
+                        <li>Sewer line issues</li>
+                        <li>Water heater installation/repair</li>
+                        <li>Re-piping projects</li>
+                        <li>Gas line work (ALWAYS professional)</li>
+                    </ul>
+                    
+                    <h2>Emergency Preparedness</h2>
+                    <p>Every homeowner should:</p>
+                    <ul>
+                        <li>Know the location of the main water shut-off valve</li>
+                        <li>Keep basic plumbing tools handy (wrench, plunger, drain snake)</li>
+                        <li>Have emergency contact numbers readily available</li>
+                        <li>Know basic first-aid for plumbing emergencies</li>
+                    </ul>
+                    
+                    <blockquote>Safety First: If you smell gas or suspect a gas leak, evacuate immediately and call your gas company from outside your home.</blockquote>
+                    
+                    <h2>Maintenance Schedule Summary</h2>
+                    <ul>
+                        <li><strong>Daily:</strong> Listen for unusual sounds</li>
+                        <li><strong>Weekly:</strong> Check for visible leaks</li>
+                        <li><strong>Monthly:</strong> Test water pressure and inspect fixtures</li>
+                        <li><strong>Quarterly:</strong> Clean aerators and showerheads</li>
+                        <li><strong>Annually:</strong> Professional inspection recommended</li>
+                    </ul>
+                    
+                    <p>Regular maintenance is the key to avoiding expensive plumbing emergencies. A little attention goes a long way in preserving your home's plumbing system.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                category: "home",
+                date: "2023-10-10",
+                readTime: "7 min read",
+                views: "892"
+            },
+            {
+                id: 3,
+                title: "Finding the Right Tutor for Your Child: A Complete Guide",
+                excerpt: "Learn how to select the perfect tutor based on your child's learning style, academic needs, and personality.",
+                content: `
+                    <h2>Understanding Your Child's Learning Needs</h2>
+                    <p>Before searching for a tutor, it's crucial to understand your child's specific needs. Are they struggling with a particular subject, need help with study skills, or require advanced enrichment?</p>
+                    
+                    <h2>Types of Tutors Available</h2>
+                    
+                    <h3>1. Subject-Specific Tutors</h3>
+                    <p>Specialists in particular subjects like Mathematics, Science, or Languages. Best for students struggling with specific academic areas.</p>
+                    
+                    <h3>2. Homework Help Tutors</h3>
+                    <p>Assist with daily assignments and organization. Ideal for students who need structure and accountability.</p>
+                    
+                    <h3>3. Test Preparation Tutors</h3>
+                    <p>Specialize in standardized tests like SAT, ACT, or competitive exams. Focus on test-taking strategies and content review.</p>
+                    
+                    <h3>4. Learning Style Specialists</h3>
+                    <p>Trained to work with different learning styles (visual, auditory, kinesthetic) and special needs.</p>
+                    
+                    <h2>Key Factors to Consider</h2>
+                    
+                    <h3>1. Qualifications and Experience</h3>
+                    <ul>
+                        <li>Educational background in the subject area</li>
+                        <li>Teaching certifications if required</li>
+                        <li>Years of tutoring experience</li>
+                        <li>References from previous clients</li>
+                    </ul>
+                    
+                    <h3>2. Teaching Methodology</h3>
+                    <p>Ask potential tutors about their approach:</p>
+                    <ul>
+                        <li>How do they assess student needs?</li>
+                        <li>What materials do they use?</li>
+                        <li>How do they track progress?</li>
+                        <li>What's their homework policy?</li>
+                    </ul>
+                    
+                    <h3>3. Personality Match</h3>
+                    <p>The tutor-student relationship is crucial. Look for:</p>
+                    <ul>
+                        <li>Patience and empathy</li>
+                        <li>Ability to motivate your child</li>
+                        <li>Communication style that matches your child's personality</li>
+                        <li>Enthusiasm for the subject</li>
+                    </ul>
+                    
+                    <h2>The Selection Process</h2>
+                    
+                    <h3>Step 1: Initial Assessment</h3>
+                    <p>Most good tutors will want to assess your child's current level before starting. This might include:</p>
+                    <ul>
+                        <li>Reviewing recent schoolwork and test scores</li>
+                        <li>Brief diagnostic test</li>
+                        <li>Discussion about learning challenges</li>
+                    </ul>
+                    
+                    <h3>Step 2: Trial Session</h3>
+                    <p>Always request a trial session to observe:</p>
+                    <ul>
+                        <li>How the tutor interacts with your child</li>
+                        <li>Teaching methods and materials used</li>
+                        <li>Your child's comfort level and engagement</li>
+                    </ul>
+                    
+                    <h3>Step 3: Progress Monitoring</h3>
+                    <p>Establish clear expectations for progress reports:</p>
+                    <ul>
+                        <li>Regular updates (weekly or bi-weekly)</li>
+                        <li>Specific feedback on areas of improvement</li>
+                        <li>Communication with school teachers if needed</li>
+                    </ul>
+                    
+                    <h2>Online vs In-Person Tutoring</h2>
+                    
+                    <h3>Online Tutoring Advantages</h3>
+                    <ul>
+                        <li>Access to specialized tutors worldwide</li>
+                        <li>Flexible scheduling</li>
+                        <li>No travel time</li>
+                        <li>Digital learning tools</li>
+                    </ul>
+                    
+                    <h3>In-Person Tutoring Advantages</h3>
+                    <ul>
+                        <li>Direct, hands-on interaction</li>
+                        <li>Better for hands-on learners</li>
+                        <li>Fewer technical issues</li>
+                        <li>Local community connection</li>
+                    </ul>
+                    
+                    <h2>Questions to Ask Potential Tutors</h2>
+                    <ul>
+                        <li>What is your educational background?</li>
+                        <li>How many years have you been tutoring?</li>
+                        <li>Can you provide references?</li>
+                        <li>What is your cancellation policy?</li>
+                        <li>How do you handle homework assignments?</li>
+                        <li>What materials do you provide?</li>
+                        <li>How do you measure progress?</li>
+                        <li>What is your preferred communication method with parents?</li>
+                    </ul>
+                    
+                    <h2>Setting Realistic Expectations</h2>
+                    <p>Remember that tutoring is a process. Significant improvement usually takes:</p>
+                    <ul>
+                        <li><strong>Immediate:</strong> Better understanding of current material</li>
+                        <li><strong>1-2 months:</strong> Improved grades and confidence</li>
+                        <li><strong>3-6 months:</strong> Developed study skills and independence</li>
+                    </ul>
+                    
+                    <blockquote>Success Tip: The most effective tutoring happens when parents, students, and tutors work together as a team with clear communication and shared goals.</blockquote>
+                    
+                    <h2>When to Reevaluate</h2>
+                    <p>Consider changing tutors if:</p>
+                    <ul>
+                        <li>No progress after 8-10 sessions</li>
+                        <li>Your child consistently resists sessions</li>
+                        <li>The tutor is frequently unprepared or late</li>
+                        <li>Communication with the tutor breaks down</li>
+                    </ul>
+                    
+                    <p>Finding the right tutor can make a significant difference in your child's academic journey. Take your time, ask the right questions, and trust your instincts.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                category: "tutoring",
+                date: "2023-10-05",
+                readTime: "9 min read",
+                views: "1,043"
+            }
+        ];
+
+        // ===== GALLERY DATA =====
+        const MAIN_GALLERY = [
+            {id: 1, category: "makeup", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Bridal Makeup", desc: "Professional bridal makeup service"},
+            {id: 2, category: "events", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Wedding Decoration", desc: "Complete wedding venue setup"},
+            {id: 3, category: "tutoring", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Online Tutoring", desc: "Virtual tutoring sessions"},
+            {id: 4, category: "plumbing", image: "https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Professional Plumbing", desc: "Bathroom plumbing installation"},
+            {id: 5, category: "electrical", image: "https://images.unsplash.com/photo-1621967299152-8c5f5c6c8b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Electrical Wiring", desc: "House electrical rewiring work"},
+            {id: 6, category: "carpentry", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Custom Furniture", desc: "Handcrafted wooden furniture"}
+        ];
+
+        // ===== DOM ELEMENTS =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navCta = document.querySelector('.nav-cta');
+        const categoryGrid = document.querySelector('.category-grid');
+        const popularServices = document.getElementById('popularServices');
+        const serviceSelect = document.getElementById('service');
+        const servicesModal = document.getElementById('servicesModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalTitle = document.getElementById('modalCategoryTitle');
+        const servicesContainer = document.getElementById('servicesContainer');
+        const galleryContainer = document.getElementById('galleryContainer');
+        const modalTabs = document.querySelectorAll('.modal-tab');
+        const tabContents = document.querySelectorAll('.modal-tab-content');
+        const galleryFilter = document.getElementById('galleryFilter');
+        const galleryMainGrid = document.getElementById('galleryMainGrid');
+        const blogGrid = document.getElementById('blogGrid');
+        const blogFilters = document.getElementById('blogFilters');
+        const blogPostPage = document.getElementById('blogPostPage');
+        const backToBlog = document.getElementById('backToBlog');
+        const galleryViewModal = document.getElementById('galleryViewModal');
+        let currentCategory = null;
+
+        // ===== INITIALIZE WEBSITE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWebsite();
+            setupEventListeners();
+            initializeBlog();
+            checkUrlForBlogPost();
+        });
+
+        function initializeWebsite() {
+            loadCategories();
+            loadPopularServices();
+            loadServiceOptions();
+            loadMainGallery();
+            setupSmoothScrolling();
+        }
+
+        function setupEventListeners() {
+            menuToggle.addEventListener('click', toggleMobileMenu);
+            closeModalBtn.addEventListener('click', closeModal);
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === servicesModal) closeModal();
+                if (e.target === galleryViewModal) closeGalleryModal();
+            });
+            
+            modalTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchTab(this.dataset.tab);
+                });
+            });
+            
+            document.getElementById('inquiryForm').addEventListener('submit', handleInquiry);
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.navbar') && !e.target.closest('.menu-toggle')) {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // ===== FUNCTIONS =====
+        function loadCategories() {
+            categoryGrid.innerHTML = CONFIG.categories.map(category => `
+                <div class="category-card ${category.highlight ? 'highlight' : ''}" onclick="showCategory('${category.id}')">
+                    <div class="category-icon">
+                        <i class="fas ${category.icon}"></i>
+                    </div>
+                    <h3>${category.name}</h3>
+                    <p>${category.desc}</p>
+                    <button class="view-services-btn">
+                        <i class="fas fa-list"></i> View Services
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function loadPopularServices() {
+            const popular = CONFIG.categories.filter(cat => cat.highlight).concat(CONFIG.categories.filter(cat => !cat.highlight).slice(0, 2));
+            popularServices.innerHTML = popular.map(category => `
+                <li><a href="#" onclick="showCategory('${category.id}'); return false;">${category.name}</a></li>
+            `).join('');
+        }
+
+        function loadServiceOptions() {
+            serviceSelect.innerHTML = '<option value="">Select Service Category</option>' +
+                CONFIG.categories.map(category => `
+                    <option value="${category.id}">${category.name}</option>
+                `).join('');
+        }
+
+        function loadMainGallery() {
+            // Create filter buttons
+            const categories = [...new Set(MAIN_GALLERY.map(item => item.category))];
+            const categoryNames = {};
+            
+            CONFIG.categories.forEach(cat => {
+                categoryNames[cat.id] = cat.name;
+            });
+            
+            galleryFilter.innerHTML = `
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                ${categories.map(cat => `
+                    <button class="filter-btn" data-filter="${cat}">${categoryNames[cat] || cat}</button>
+                `).join('')}
+            `;
+            
+            // Load all gallery items
+            renderGalleryItems(MAIN_GALLERY);
+            
+            // Add event listeners to filter buttons
+            galleryFilter.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    galleryFilter.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    if (filter === 'all') {
+                        renderGalleryItems(MAIN_GALLERY);
+                    } else {
+                        const filteredItems = MAIN_GALLERY.filter(item => item.category === filter);
+                        renderGalleryItems(filteredItems);
+                    }
+                });
+            });
+        }
+
+        function renderGalleryItems(items) {
+            if (items.length === 0) {
+                galleryMainGrid.innerHTML = `
+                    <div class="no-gallery-items">
+                        <i class="far fa-images" style="font-size: 3rem; margin-bottom: 15px; color: var(--primary-blue);"></i>
+                        <p>No gallery items found for this category.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            galleryMainGrid.innerHTML = items.map(item => {
+                const category = CONFIG.categories.find(c => c.id === item.category);
+                const categoryName = category ? category.name : item.category;
+                
+                return `
+                    <div class="gallery-main-item" onclick="openGalleryItem(${item.id})">
+                        <img src="${item.image}" alt="${item.title} - ${categoryName} service" loading="lazy">
+                        <div class="gallery-main-content">
+                            <h4>${item.title}</h4>
+                            <p>${item.desc}</p>
+                        </div>
+                        <span class="gallery-category-tag">${categoryName}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        closeMobileMenu();
+                    }
+                });
+            });
+        }
+
+        function showCategory(categoryId) {
+            currentCategory = categoryId;
+            const category = CONFIG.categories.find(c => c.id === categoryId);
+            
+            if (!category) return;
+            
+            modalTitle.textContent = `${category.name} Services`;
+            loadServices(categoryId);
+            loadGallery(categoryId);
+            servicesModal.style.display = 'flex';
+            switchTab('services');
+        }
+
+        function loadServices(categoryId) {
+            const services = SERVICES[categoryId] || [];
+            
+            servicesContainer.innerHTML = services.map(item => `
+                <div class="service-group">
+                    <h3>${item.service}</h3>
+                    <div class="sub-service-list">
+                        <div class="sub-service-item">
+                            <p>${item.subservice}</p>
+                            <button class="btn btn-success btn-sm" onclick="bookService('${categoryId}', '${item.service} - ${item.subservice}')">
+                                <i class="fab fa-whatsapp"></i> Book This
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadGallery(categoryId) {
+            const gallery = MAIN_GALLERY.filter(item => item.category === categoryId);
+            
+            if (gallery.length > 0) {
+                galleryContainer.innerHTML = `
+                    <div class="gallery-main-grid">
+                        ${gallery.map(item => `
+                            <div class="gallery-main-item">
+                                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                                <div class="gallery-main-content">
+                                    <h4>${item.title}</h4>
+                                    <p>${item.desc}</p>
+                                </div>
+                                <span class="gallery-category-tag">${CONFIG.categories.find(c => c.id === item.category)?.name || item.category}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                galleryContainer.innerHTML = `
+                    <div class="no-gallery-items">
+                        <p>No gallery available for this category yet.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function switchTab(tabName) {
+            modalTabs.forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.tab === tabName);
+            });
+            
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === tabName + 'Tab');
+            });
+        }
+
+        function bookService(categoryId, serviceName) {
+            const category = CONFIG.categories.find(c => c.id === categoryId);
+            const message = `Hello! I want to book ${serviceName} (${category.name}) from BookMyProfessionals.com. Please share availability and pricing.`;
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function openGalleryItem(itemId) {
+            const item = MAIN_GALLERY.find(i => i.id === itemId);
+            if (!item) return;
+            
+            const category = CONFIG.categories.find(c => c.id === item.category);
+            const categoryName = category ? category.name : item.category;
+            
+            document.getElementById('galleryModalIcon').className = `gallery-modal-icon fas fa-image`;
+            document.getElementById('galleryModalTitle').textContent = item.title;
+            document.getElementById('galleryModalDesc').textContent = item.desc;
+            document.getElementById('galleryModalCategory').textContent = categoryName;
+            document.getElementById('galleryBookBtn').dataset.category = item.category;
+            document.getElementById('galleryBookBtn').dataset.service = item.title;
+            
+            galleryViewModal.style.display = 'flex';
+        }
+
+        function closeGalleryModal() {
+            galleryViewModal.style.display = 'none';
+        }
+
+        function bookFromGallery() {
+            const btn = document.getElementById('galleryBookBtn');
+            const category = btn.dataset.category;
+            const service = btn.dataset.service;
+            
+            const categoryObj = CONFIG.categories.find(c => c.id === category);
+            const message = `Hello! I want to book "${service}" (${categoryObj.name}) from BookMyProfessionals.com. I saw this in your gallery. Please share availability and pricing.`;
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(url, '_blank');
+            closeGalleryModal();
+        }
+
+        function handleInquiry(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const category = CONFIG.categories.find(c => c.id === service);
+            const serviceName = category ? category.name : service;
+            
+            const whatsappMessage = `New Booking Inquiry from BookMyProfessionals.com:\n\nName: ${name}\nPhone: ${phone}\nService: ${serviceName}\nMessage: ${message || 'No additional message'}\n\nPlease contact me for booking.`;
+            
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(url, '_blank');
+            
+            e.target.reset();
+            alert("Thank you! Opening WhatsApp to send your inquiry.");
+        }
+
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            navCta.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            navCta.classList.remove('active');
+        }
+
+        function closeModal() {
+            servicesModal.style.display = 'none';
+        }
+
+        // ===== BLOG FUNCTIONS =====
+        function initializeBlog() {
+            loadBlogPosts();
+            setupBlogFilters();
+            setupBlogNavigation();
+        }
+
+        function loadBlogPosts() {
+            blogGrid.innerHTML = BLOG_POSTS.map(post => `
+                <div class="blog-card" data-category="${post.category}">
+                    <div class="blog-image-container">
+                        <img src="${post.image}" alt="${post.title}" class="blog-image" loading="lazy">
+                        <span class="blog-category">${formatCategoryName(post.category)}</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> ${formatDate(post.date)}
+                            </div>
+                            <a href="#" class="read-more" onclick="showBlogPost(${post.id}); return false;">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupBlogFilters() {
+            blogFilters.querySelectorAll('.blog-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    blogFilters.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    filterBlogPosts(category);
+                });
+            });
+        }
+
+        function filterBlogPosts(category) {
+            const blogCards = document.querySelectorAll('.blog-card');
+            blogCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function showBlogPost(postId) {
+            const post = BLOG_POSTS.find(p => p.id === postId);
+            if (!post) return;
+            
+            // Hide blog list, show blog post
+            document.getElementById('blog').style.display = 'none';
+            blogPostPage.style.display = 'block';
+            
+            // Update post content
+            document.getElementById('postCategory').textContent = formatCategoryName(post.category);
+            document.getElementById('postTitle').textContent = post.title;
+            document.getElementById('postDate').textContent = formatDate(post.date);
+            document.getElementById('postReadTime').textContent = post.readTime;
+            document.getElementById('postViews').textContent = post.views;
+            document.getElementById('postImage').src = post.image;
+            document.getElementById('postImage').alt = post.title;
+            document.getElementById('postContent').innerHTML = post.content;
+            
+            // Update navigation
+            const currentIndex = BLOG_POSTS.findIndex(p => p.id === postId);
+            const prevPost = BLOG_POSTS[currentIndex - 1];
+            const nextPost = BLOG_POSTS[currentIndex + 1];
+            
+            const prevPostLink = document.getElementById('prevPost');
+            const nextPostLink = document.getElementById('nextPost');
+            
+            if (prevPost) {
+                prevPostLink.href = '#';
+                prevPostLink.onclick = (e) => {
+                    e.preventDefault();
+                    showBlogPost(prevPost.id);
+                };
+                prevPostLink.style.visibility = 'visible';
+            } else {
+                prevPostLink.style.visibility = 'hidden';
+            }
+            
+            if (nextPost) {
+                nextPostLink.href = '#';
+                nextPostLink.onclick = (e) => {
+                    e.preventDefault();
+                    showBlogPost(nextPost.id);
+                };
+                nextPostLink.style.visibility = 'visible';
+            } else {
+                nextPostLink.style.visibility = 'hidden';
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Update URL
+            window.history.pushState({postId: postId}, '', `#blog?post=${postId}`);
+        }
+
+        function showBlogList() {
+            // Show blog list, hide blog post
+            document.getElementById('blog').style.display = 'block';
+            blogPostPage.style.display = 'none';
+            
+            // Update URL
+            window.history.pushState({}, '', '#blog');
+        }
+
+        function setupBlogNavigation() {
+            backToBlog.addEventListener('click', function(e) {
+                e.preventDefault();
+                showBlogList();
+            });
+            
+            // Handle browser back/forward
+            window.addEventListener('popstate', function() {
+                checkUrlForBlogPost();
+            });
+        }
+
+        function checkUrlForBlogPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('post');
+            
+            if (postId && window.location.hash === '#blog') {
+                showBlogPost(parseInt(postId));
+            } else {
+                showBlogList();
+            }
+        }
+
+        function formatCategoryName(category) {
+            const categoryNames = {
+                'makeup': 'Makeup & Beauty',
+                'events': 'Event Planning',
+                'tutoring': 'Tutoring',
+                'home': 'Home Services',
+                'tips': 'Tips & Guides'
+            };
+            return categoryNames[category] || category;
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Make functions globally available
+        window.showCategory = showCategory;
+        window.bookService = bookService;
+        window.openGalleryItem = openGalleryItem;
+        window.closeGalleryModal = closeGalleryModal;
+        window.bookFromGallery = bookFromGallery;
+        window.showBlogPost = showBlogPost;
+        window.showBlogList = showBlogList;
+    </script>
+</body>
+</html>
