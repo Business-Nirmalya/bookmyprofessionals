@@ -137,6 +137,15 @@
             font-size: 14px;
         }
 
+        .btn-mini {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .section-title {
             font-size: 2rem;
             text-align: center;
@@ -237,6 +246,30 @@
             margin-left: 15px;
         }
 
+        .mobile-whatsapp-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--whatsapp-green) 0%, #1da851 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            position: absolute;
+            right: 60px;
+            top: 12px;
+        }
+
+        .mobile-whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
         .menu-toggle {
             display: none;
             background: none;
@@ -244,6 +277,16 @@
             font-size: 1.5rem;
             color: var(--navy-blue);
             cursor: pointer;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--light-gray);
         }
 
         /* ===== HERO SECTION ===== */
@@ -1360,8 +1403,12 @@
                 display: none;
             }
             
+            .mobile-whatsapp-btn {
+                display: flex;
+            }
+            
             .menu-toggle {
-                display: block;
+                display: flex;
             }
             
             .nav-links.active {
@@ -1374,18 +1421,25 @@
                 background-color: var(--white);
                 padding: 20px;
                 box-shadow: 0 10px 15px rgba(30, 64, 175, 0.1);
+                z-index: 1000;
             }
             
             .nav-links.active li {
                 margin: 10px 0;
+                width: 100%;
             }
             
-            .nav-cta.active {
+            .nav-links.active a {
                 display: block;
-                position: absolute;
-                top: calc(100% + 160px);
-                left: 20px;
-                width: calc(100% - 40px);
+                padding: 12px 15px;
+                border-radius: var(--border-radius);
+                transition: var(--transition);
+            }
+            
+            .nav-links.active a:hover {
+                background-color: var(--light-gray);
+                color: var(--primary-blue);
+                padding-left: 20px;
             }
             
             /* Hero Section */
@@ -1520,6 +1574,20 @@
                 font-size: 15px;
             }
             
+            .mobile-whatsapp-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                right: 55px;
+                top: 15px;
+            }
+            
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+            
             .category-grid {
                 grid-template-columns: 1fr;
             }
@@ -1605,6 +1673,10 @@
                 padding: 10px 16px;
                 font-size: 14px;
             }
+            
+            .mobile-whatsapp-btn {
+                right: 50px;
+            }
         }
     </style>
 </head>
@@ -1677,6 +1749,9 @@
                 <a href="#contact" class="btn btn-primary nav-cta">
                     Book via WhatsApp
                 </a>
+                <button class="mobile-whatsapp-btn" id="mobileWhatsAppBtn" title="Book via WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
                 <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -1991,8 +2066,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 BookMyProfessionals.com
-                          All rights reserved.</p>
+                <p>&copy; 2023 BookMyProfessionals.com. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -2667,6 +2741,7 @@
 
         // ===== DOM ELEMENTS =====
         const menuToggle = document.getElementById('menuToggle');
+        const mobileWhatsAppBtn = document.getElementById('mobileWhatsAppBtn');
         const navLinks = document.querySelector('.nav-links');
         const navCta = document.querySelector('.nav-cta');
         const categoryGrid = document.querySelector('.category-grid');
@@ -2759,6 +2834,7 @@
 
         function setupEventListeners() {
             menuToggle.addEventListener('click', toggleMobileMenu);
+            mobileWhatsAppBtn.addEventListener('click', openMobileWhatsApp);
             closeModalBtn.addEventListener('click', closeModal);
             
             window.addEventListener('click', function(e) {
@@ -2775,7 +2851,7 @@
             document.getElementById('inquiryForm').addEventListener('submit', handleInquiry);
             
             document.addEventListener('click', function(e) {
-                if (!e.target.closest('.navbar') && !e.target.closest('.menu-toggle')) {
+                if (!e.target.closest('.navbar') && !e.target.closest('.menu-toggle') && !e.target.closest('.mobile-whatsapp-btn')) {
                     closeMobileMenu();
                 }
             });
@@ -2907,6 +2983,7 @@
             loadGallery(categoryId);
             servicesModal.style.display = 'flex';
             switchTab('services');
+            closeMobileMenu();
         }
 
         function loadServices(categoryId) {
@@ -3027,12 +3104,15 @@
 
         function toggleMobileMenu() {
             navLinks.classList.toggle('active');
-            navCta.classList.toggle('active');
         }
 
         function closeMobileMenu() {
             navLinks.classList.remove('active');
-            navCta.classList.remove('active');
+        }
+
+        function openMobileWhatsApp() {
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com`;
+            window.open(url, '_blank');
         }
 
         function closeModal() {
