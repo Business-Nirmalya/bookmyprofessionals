@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMyProfessionals.com | Hire Trusted Professionals via WhatsApp</title>
-    <meta name="description" content="Book professional services via WhatsApp: makeup artists, event planners, tutors, electricians, plumbers, carpenters, and more. Instant booking, verified professionals.">
-    <meta name="keywords" content="professional services, makeup artist, event planner, tutor, electrician, plumber, carpenter, WhatsApp booking, home services, blog, tips, guides">
+    <meta name="description" content="Book professional services via WhatsApp: makeup artists, event planners, tutors, electricians, plumbers, carpenters, home automation, and more. Instant booking, verified professionals.">
+    <meta name="keywords" content="professional services, makeup artist, event planner, tutor, electrician, plumber, carpenter, home automation, IoT, smart home, WhatsApp booking, home services, blog, tips, guides">
     <meta name="author" content="BookMyProfessionals">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BookMyProfessionals">
@@ -50,6 +50,7 @@
             --accent-pink: #ec4899;
             --accent-purple: #8b5cf6;
             --accent-orange: #f97316;
+            --accent-teal: #0d9488; /* Added for home automation */
             
             /* Design Elements */
             --border-radius: 10px;
@@ -357,6 +358,10 @@
             border-top-color: var(--accent-purple);
         }
 
+        .category-card.highlight:nth-child(3) {
+            border-top-color: var(--accent-teal);
+        }
+
         .category-icon {
             width: 80px;
             height: 80px;
@@ -377,6 +382,10 @@
 
         .category-card.highlight:nth-child(2) .category-icon {
             background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%);
+        }
+
+        .category-card.highlight:nth-child(3) .category-icon {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #0f766e 100%);
         }
 
         .category-card:hover .category-icon {
@@ -417,6 +426,10 @@
 
         .category-card.highlight:nth-child(2) .view-services-btn {
             background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%);
+        }
+
+        .category-card.highlight:nth-child(3) .view-services-btn {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #0f766e 100%);
         }
 
         .view-services-btn:hover {
@@ -1676,7 +1689,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Book Trusted <span>Professionals</span> Instantly</h1>
-                <p>Find makeup artists, event planners, tutors, electricians, plumbers, carpenters, interior designers, priests for pujas, and many more professionals via WhatsApp.</p>
+                <p>Find makeup artists, event planners, tutors, electricians, plumbers, carpenters, home automation experts, interior designers, priests for pujas, and many more professionals via WhatsApp.</p>
                 <div class="cta-buttons">
                     <a href="#categories" class="btn btn-primary">Browse Services</a>
                     <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com" class="btn btn-secondary" target="_blank">
@@ -1754,6 +1767,7 @@
                 <button class="blog-filter-btn" data-category="events">Event Planning</button>
                 <button class="blog-filter-btn" data-category="tutoring">Tutoring</button>
                 <button class="blog-filter-btn" data-category="home">Home Services</button>
+                <button class="blog-filter-btn" data-category="home-automation">Home Automation</button>
                 <button class="blog-filter-btn" data-category="tips">Tips & Guides</button>
             </div>
             
@@ -1993,6 +2007,7 @@
             categories: [
                 {id: "makeup", name: "Makeup & Beauty", icon: "fa-spa", desc: "Bridal, party, hairstyling, mehendi", highlight: true},
                 {id: "events", name: "Event & Wedding", icon: "fa-glass-cheers", desc: "Planning, makeup, catering, decoration", highlight: true},
+                {id: "home-automation", name: "Home Automation", icon: "fa-robot", desc: "IoT, smart lighting, security systems", highlight: true},
                 {id: "tutoring", name: "Tutoring Services", icon: "fa-graduation-cap", desc: "Academic, skill-based, online/offline"},
                 {id: "plumbing", name: "Plumbing", icon: "fa-faucet", desc: "Installation, repair, maintenance"},
                 {id: "electrical", name: "Electrical", icon: "fa-bolt", desc: "Wiring, installations, electrical work"},
@@ -2019,6 +2034,14 @@
                 {service: "Wedding Coordinator", subservice: "Day-of coordination"},
                 {service: "Bridal Makeup Artist", subservice: "Airbrush, HD makeup"},
                 {service: "Wedding Catering", subservice: "Full wedding meals"}
+            ],
+            "home-automation": [
+                {service: "Smart Lighting Installation", subservice: "Philips Hue, remote control, motion sensing, scheduling"},
+                {service: "Climate Control Systems", subservice: "Smart thermostats, automated heating/cooling, energy optimization"},
+                {service: "Security & Safety Systems", subservice: "Connected cameras, smart locks, motion sensors, gas leak detection"},
+                {service: "Appliance Control", subservice: "Smart plugs, smart refrigerators, washing machines, energy monitoring"},
+                {service: "Voice & App Integration", subservice: "Alexa, Google Assistant, centralized mobile app management"},
+                {service: "Home Assistant Setup", subservice: "DIY to professional installations, personalized automation routines"}
             ],
             tutoring: [
                 {service: "Academic Tutoring", subservice: "Math, Science, English, all subjects"},
@@ -2397,6 +2420,236 @@
                 date: "2023-10-05",
                 readTime: "9 min read",
                 views: "1,043"
+            },
+            {
+                id: 4,
+                title: "Smart Home Automation: Transforming Your Living Space with IoT",
+                excerpt: "Discover how home automation using IoT can enhance convenience, security, and energy efficiency in your home.",
+                content: `
+                    <h2>The Future is Smart: Introduction to Home Automation</h2>
+                    <p>Home automation is revolutionizing how we interact with our living spaces. By connecting devices through the Internet of Things (IoT), homeowners can enjoy unprecedented levels of convenience, security, and energy efficiency.</p>
+                    
+                    <h2>What is IoT Home Automation?</h2>
+                    <p>IoT home automation involves connecting various household devices and systems to the internet, allowing them to communicate with each other and be controlled remotely via smartphones, tablets, or voice commands.</p>
+                    
+                    <h2>Key Benefits of Home Automation</h2>
+                    
+                    <h3>1. Enhanced Convenience</h3>
+                    <ul>
+                        <li><strong>Remote Control:</strong> Control lights, thermostat, and appliances from anywhere</li>
+                        <li><strong>Automated Routines:</strong> Set schedules for lights to turn on/off automatically</li>
+                        <li><strong>Voice Commands:</strong> Use Alexa, Google Assistant, or Siri for hands-free control</li>
+                        <li><strong>Scene Creation:</strong> "Good Morning" scene that opens blinds, starts coffee maker, and adjusts thermostat</li>
+                    </ul>
+                    
+                    <h3>2. Improved Security</h3>
+                    <ul>
+                        <li><strong>Smart Security Cameras:</strong> Monitor your home 24/7 with motion detection</li>
+                        <li><strong>Smart Locks:</strong> Keyless entry and remote locking/unlocking</li>
+                        <li><strong>Motion Sensors:</strong> Detect unusual activity and send alerts</li>
+                        <li><strong>Smart Doorbells:</strong> See and speak with visitors remotely</li>
+                    </ul>
+                    
+                    <h3>3. Energy Efficiency</h3>
+                    <ul>
+                        <li><strong>Smart Thermostats:</strong> Learn your schedule and optimize heating/cooling</li>
+                        <li><strong>Smart Lighting:</strong> Automatically turn off lights when rooms are empty</li>
+                        <li><strong>Energy Monitoring:</strong> Track electricity usage in real-time</li>
+                        <li><strong>Smart Plugs:</strong> Schedule appliances to run during off-peak hours</li>
+                    </ul>
+                    
+                    <h3>4. Safety Features</h3>
+                    <ul>
+                        <li><strong>Smoke/CO2 Detectors:</strong> Smart alerts to your phone</li>
+                        <li><strong>Water Leak Sensors:</strong> Detect leaks before they cause damage</li>
+                        <li><strong>Gas Leak Detection:</strong> Immediate alerts for dangerous situations</li>
+                        <li><strong>Gas Cylinder Level Alerts:</strong> Get notified before gas runs out</li>
+                    </ul>
+                    
+                    <h2>Popular Home Automation Systems</h2>
+                    
+                    <h3>1. Entry-Level Systems</h3>
+                    <p>Perfect for beginners who want to start small:</p>
+                    <ul>
+                        <li><strong>Smart Speakers:</strong> Amazon Echo, Google Nest</li>
+                        <li><strong>Smart Bulbs:</strong> Philips Hue, LIFX</li>
+                        <li><strong>Smart Plugs:</strong> TP-Link Kasa, Wemo</li>
+                        <li><strong>Basic Security:</strong> Ring doorbell, Blink cameras</li>
+                    </ul>
+                    
+                    <h3>2. Mid-Range Systems</h3>
+                    <p>For homeowners wanting more integration:</p>
+                    <ul>
+                        <li><strong>Smart Thermostats:</strong> Nest, Ecobee</li>
+                        <li><strong>Complete Lighting:</strong> Whole-home smart lighting</li>
+                        <li><strong>Security Systems:</strong> ADT, SimpliSafe with monitoring</li>
+                        <li><strong>Smart Appliances:</strong> Refrigerators, washers with WiFi</li>
+                    </ul>
+                    
+                    <h3>3. Professional/High-End Systems</h3>
+                    <p>Whole-home automation with professional installation:</p>
+                    <ul>
+                        <li><strong>Control4:</strong> Complete home automation platform</li>
+                        <li><strong>Crestron:</strong> Luxury home automation</li>
+                        <li><strong>Savant:</strong> High-end integration</li>
+                        <li><strong>Home Assistant:</strong> DIY professional-grade system</li>
+                    </ul>
+                    
+                    <h2>Essential Home Automation Components</h2>
+                    
+                    <h3>1. Hub/Controller</h3>
+                    <p>The brain of your smart home that connects all devices:</p>
+                    <ul>
+                        <li><strong>Standalone Hubs:</strong> Samsung SmartThings, Hubitat</li>
+                        <li><strong>Built-in Hubs:</strong> Amazon Echo Plus, Apple HomePod</li>
+                        <li><strong>Software Hubs:</strong> Home Assistant on Raspberry Pi</li>
+                    </ul>
+                    
+                    <h3>2. Communication Protocols</h3>
+                    <p>How your devices talk to each other:</p>
+                    <ul>
+                        <li><strong>WiFi:</strong> Common, easy to set up</li>
+                        <li><strong>Zigbee:</strong> Low power, mesh network</li>
+                        <li><strong>Z-Wave:</strong> Reliable, interference-free</li>
+                        <li><strong>Bluetooth:</strong> Short range, direct connection</li>
+                        <li><strong>Thread:</strong> New standard for better connectivity</li>
+                    </ul>
+                    
+                    <h3>3. Sensors and Actuators</h3>
+                    <p>The eyes, ears, and hands of your smart home:</p>
+                    <ul>
+                        <li><strong>Motion Sensors:</strong> Detect movement for lighting/security</li>
+                        <li><strong>Contact Sensors:</strong> Detect door/window opening</li>
+                        <li><strong>Temperature Sensors:</strong> For climate control</li>
+                        <li><strong>Smart Relays:</strong> Control traditional switches/outlets</li>
+                    </ul>
+                    
+                    <h2>Getting Started with Home Automation</h2>
+                    
+                    <h3>Step 1: Define Your Goals</h3>
+                    <p>What do you want to achieve?</p>
+                    <ul>
+                        <li>Convenience (voice control, automation)</li>
+                        <li>Security (cameras, alerts)</li>
+                        <li>Energy savings (smart thermostats, lighting)</li>
+                        <li>Entertainment (whole-home audio/video)</li>
+                    </ul>
+                    
+                    <h3>Step 2: Start Small</h3>
+                    <p>Begin with one or two devices:</p>
+                    <ul>
+                        <li>Smart speaker for voice control</li>
+                        <li>Smart bulbs for basic automation</li>
+                        <li>Smart plug for appliance control</li>
+                    </ul>
+                    
+                    <h3>Step 3: Expand Gradually</h3>
+                    <p>Add devices based on your needs:</p>
+                    <ul>
+                        <li>Security devices (cameras, doorbell)</li>
+                        <li>Climate control (smart thermostat)</li>
+                        <li>Whole-home lighting</li>
+                        <li>Smart appliances</li>
+                    </ul>
+                    
+                    <blockquote>Pro Tip: When choosing devices, consider compatibility. Stick to one ecosystem (Google, Amazon, Apple) or choose devices that work with multiple platforms.</blockquote>
+                    
+                    <h3>Step 4: Create Automation Rules</h3>
+                    <p>Make your devices work together:</p>
+                    <ul>
+                        <li>"Good Night" scene: Lock doors, turn off lights, adjust thermostat</li>
+                        <li>"Away Mode": Turn on security, adjust temperature, simulate occupancy</li>
+                        <li>"Movie Time": Dim lights, close blinds, start entertainment system</li>
+                    </ul>
+                    
+                    <h2>Common Home Automation Scenarios</h2>
+                    
+                    <h3>Morning Routine</h3>
+                    <ul>
+                        <li>6:30 AM: Bedroom lights gradually brighten</li>
+                        <li>6:45 AM: Coffee maker starts brewing</li>
+                        <li>7:00 AM: Bathroom heated floor turns on</li>
+                        <li>7:15 AM: News briefing plays on smart speaker</li>
+                    </ul>
+                    
+                    <h3>Energy Saving</h3>
+                    <ul>
+                        <li>Lights automatically turn off when room is empty</li>
+                        <li>Thermostat adjusts when everyone leaves home</li>
+                        <li>Appliances run during off-peak electricity hours</li>
+                        <li>Blinds close during hottest part of day</li>
+                    </ul>
+                    
+                    <h3>Security Enhancement</h3>
+                    <ul>
+                        <li>Cameras start recording when motion detected</li>
+                        <li>Lights turn on when motion detected at night</li>
+                        <li>Door locks automatically at bedtime</li>
+                        <li>Alerts sent if windows are opened while away</li>
+                    </ul>
+                    
+                    <h2>DIY vs Professional Installation</h2>
+                    
+                    <h3>DIY (Do-It-Yourself)</h3>
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>Lower initial cost</li>
+                        <li>Flexibility to choose devices</li>
+                        <li>Can expand slowly over time</li>
+                        <li>Learning experience</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>Requires technical knowledge</li>
+                        <li>Time-consuming setup</li>
+                        <li>Potential compatibility issues</li>
+                        <li>No professional support</li>
+                    </ul>
+                    
+                    <h3>Professional Installation</h3>
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>Expert system design</li>
+                        <li>Professional installation quality</li>
+                        <li>Technical support and maintenance</li>
+                        <li>Warranty and reliability</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>Higher initial cost</li>
+                        <li>Less flexibility after installation</li>
+                        <li>Vendor lock-in potential</li>
+                        <li>Scheduled maintenance required</li>
+                    </ul>
+                    
+                    <h2>Future Trends in Home Automation</h2>
+                    <ul>
+                        <li><strong>AI Integration:</strong> Systems that learn your habits and preferences</li>
+                        <li><strong>Edge Computing:</strong> Faster response times with local processing</li>
+                        <li><strong>5G Connectivity:</strong> Faster and more reliable connections</li>
+                        <li><strong>Health Monitoring:</strong> Systems that monitor air quality and health metrics</li>
+                        <li><strong>Sustainable Automation:</strong> Integration with renewable energy systems</li>
+                    </ul>
+                    
+                    <h2>Getting Professional Help</h2>
+                    <p>While DIY options exist, professional installation ensures:</p>
+                    <ul>
+                        <li>Proper system design for your specific needs</li>
+                        <li>Reliable installation and setup</li>
+                        <li>Ongoing technical support</li>
+                        <li>Integration with existing systems</li>
+                        <li>Warranty and maintenance plans</li>
+                    </ul>
+                    
+                    <blockquote>Smart Tip: Start with a consultation. Many professional home automation companies offer free consultations to assess your needs and provide recommendations.</blockquote>
+                    
+                    <p>Home automation is no longer a luxury reserved for the wealthy. With affordable options and easy-to-use systems, anyone can enjoy the benefits of a smarter, more efficient, and secure home.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                category: "home-automation",
+                date: "2023-10-20",
+                readTime: "12 min read",
+                views: "1,567"
             }
         ];
 
@@ -2407,7 +2660,8 @@
             {id: 3, category: "tutoring", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Online Tutoring", desc: "Virtual tutoring sessions"},
             {id: 4, category: "plumbing", image: "https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Professional Plumbing", desc: "Bathroom plumbing installation"},
             {id: 5, category: "electrical", image: "https://images.unsplash.com/photo-1621967299152-8c5f5c6c8b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Electrical Wiring", desc: "House electrical rewiring work"},
-            {id: 6, category: "carpentry", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Custom Furniture", desc: "Handcrafted wooden furniture"}
+            {id: 6, category: "carpentry", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Custom Furniture", desc: "Handcrafted wooden furniture"},
+            {id: 7, category: "home-automation", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Smart Home Setup", desc: "Complete IoT home automation installation"}
         ];
 
         // ===== DOM ELEMENTS =====
@@ -2930,6 +3184,7 @@
                 'events': 'Event Planning',
                 'tutoring': 'Tutoring',
                 'home': 'Home Services',
+                'home-automation': 'Home Automation',
                 'tips': 'Tips & Guides'
             };
             return categoryNames[category] || category;
