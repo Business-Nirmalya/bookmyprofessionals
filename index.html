@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMyProfessionals.com | Hire Trusted Professionals via WhatsApp</title>
-    <meta name="description" content="Book professional services via WhatsApp: makeup artists, event planners, tutors, electricians, plumbers, carpenters, home automation, and more. Instant booking, verified professionals.">
-    <meta name="keywords" content="professional services, makeup artist, event planner, tutor, electrician, plumber, carpenter, home automation, IoT, smart home, WhatsApp booking, home services, blog, tips, guides">
+    <meta name="description" content="Book professional services via WhatsApp: makeup artists, event planners, interior designers, home automation experts, tutors, electricians, plumbers, carpenters, and more. Instant booking, verified professionals.">
+    <meta name="keywords" content="professional services, makeup artist, event planner, interior designer, home automation, IoT, smart home, tutor, electrician, plumber, carpenter, WhatsApp booking, home services, blog, tips, guides">
     <meta name="author" content="BookMyProfessionals">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BookMyProfessionals">
@@ -48,9 +48,11 @@
             /* Accent Colors */
             --whatsapp-green: #25D366;
             --accent-pink: #ec4899;
-            --accent-purple: #8b5cf6;
+            --accent-purple: #8b5cf6;      /* used for tutoring */
             --accent-orange: #f97316;
-            --accent-teal: #0d9488; /* Added for home automation */
+            --accent-teal: #0d9488;
+            --accent-interior: #d97706;
+            --accent-orissa: #e67e22;
             
             /* Design Elements */
             --border-radius: 10px;
@@ -402,7 +404,17 @@
         }
 
         .category-card.highlight:nth-child(3) {
+            border-top-color: var(--accent-interior);
+        }
+
+        .category-card.highlight:nth-child(4) {
             border-top-color: var(--accent-teal);
+        }
+
+        /* Tutoring category (5th child) now gets its own distinct highlight */
+        .category-card.highlight:nth-child(5) {
+            border-top: 4px solid var(--accent-purple);
+            background: linear-gradient(to bottom, #faf5ff, white);
         }
 
         .category-icon {
@@ -428,7 +440,16 @@
         }
 
         .category-card.highlight:nth-child(3) .category-icon {
+            background: linear-gradient(135deg, var(--accent-interior) 0%, #b45309 100%);
+        }
+
+        .category-card.highlight:nth-child(4) .category-icon {
             background: linear-gradient(135deg, var(--accent-teal) 0%, #0f766e 100%);
+        }
+
+        /* Tutoring icon */
+        .category-card.highlight:nth-child(5) .category-icon {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #6d28d9 100%);
         }
 
         .category-card:hover .category-icon {
@@ -472,7 +493,15 @@
         }
 
         .category-card.highlight:nth-child(3) .view-services-btn {
+            background: linear-gradient(135deg, var(--accent-interior) 0%, #b45309 100%);
+        }
+
+        .category-card.highlight:nth-child(4) .view-services-btn {
             background: linear-gradient(135deg, var(--accent-teal) 0%, #0f766e 100%);
+        }
+
+        .category-card.highlight:nth-child(5) .view-services-btn {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #5b21b6 100%);
         }
 
         .view-services-btn:hover {
@@ -480,9 +509,10 @@
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
 
-        /* ===== GALLERY SECTION ===== */
+        /* ===== ENHANCED GALLERY SECTION ===== */
         .gallery-section {
-            background-color: var(--white);
+            background-color: var(--light-gray);
+            padding: 80px 0;
         }
 
         .gallery-filter {
@@ -491,11 +521,10 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 40px;
-            padding: 0 10px;
         }
 
         .filter-btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: var(--white);
             border: 2px solid var(--medium-gray);
             border-radius: 30px;
@@ -503,7 +532,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -512,85 +541,118 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
             color: var(--white);
             border-color: var(--primary-blue);
+            transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
         }
 
-        .gallery-main-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
             margin-top: 20px;
         }
 
-        .gallery-main-item {
+        .gallery-item {
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
-            height: 250px;
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-blue) 100%);
+            height: 280px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             cursor: pointer;
         }
 
-        .gallery-main-item:hover {
-            transform: translateY(-10px);
+        .gallery-item:hover {
+            transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(30, 64, 175, 0.2);
         }
 
-        .gallery-main-item img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
         }
 
-        .gallery-main-content {
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
             position: absolute;
-            bottom: 0;
+            bottom: -100%;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.95), rgba(37, 99, 235, 0.85));
             padding: 20px;
-            color: white;
+            color: var(--white);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
         }
 
-        .gallery-main-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: var(--white);
             font-weight: 600;
         }
 
-        .gallery-main-content p {
-            font-size: 0.85rem;
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             opacity: 0.9;
             color: rgba(255, 255, 255, 0.9);
         }
 
-        .gallery-category-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--navy-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+        .gallery-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view,
+        .btn-book {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex: 1;
+            justify-content: center;
         }
 
-        .no-gallery-items {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 50px 20px;
-            color: var(--text-light);
-            font-style: italic;
-            background-color: var(--light-gray);
-            border-radius: var(--border-radius);
+        .btn-view {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Gallery Modal for Larger View */
+        .btn-view:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-book {
+            background-color: var(--whatsapp-green);
+            color: var(--white);
+        }
+
+        .btn-book:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+        }
+
+        /* Gallery Modal */
         .gallery-view-modal {
             display: none;
             position: fixed;
@@ -610,10 +672,21 @@
             border-radius: var(--border-radius);
             width: 100%;
             max-width: 500px;
-            padding: 30px;
+            padding: 40px;
             position: relative;
             animation: modalFadeIn 0.3s;
             text-align: center;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .gallery-modal-icon {
@@ -623,7 +696,7 @@
         }
 
         .gallery-modal-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--navy-blue);
             margin-bottom: 10px;
         }
@@ -631,16 +704,17 @@
         .gallery-modal-desc {
             color: var(--text-light);
             margin-bottom: 20px;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .gallery-modal-category {
             display: inline-block;
             background: var(--light-gray);
             color: var(--navy-blue);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             margin-bottom: 25px;
             font-weight: 500;
         }
@@ -776,187 +850,6 @@
         .blog-cta {
             text-align: center;
             margin-top: 40px;
-        }
-
-        /* ===== BLOG POST PAGE STYLES ===== */
-        .blog-post-page {
-            padding: 80px 0;
-            background-color: var(--white);
-            display: none;
-        }
-
-        .blog-post-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .blog-post-header {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .blog-post-category {
-            display: inline-block;
-            background: var(--light-gray);
-            color: var(--primary-blue);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .blog-post-title {
-            font-size: 2.2rem;
-            color: var(--navy-blue);
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .blog-post-meta {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-        }
-
-        .blog-post-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            margin-bottom: 30px;
-        }
-
-        .blog-post-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-        }
-
-        .blog-post-content h2 {
-            font-size: 1.6rem;
-            color: var(--navy-blue);
-            margin: 30px 0 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--medium-gray);
-        }
-
-        .blog-post-content h3 {
-            font-size: 1.3rem;
-            color: var(--navy-blue);
-            margin: 25px 0 10px;
-        }
-
-        .blog-post-content p {
-            margin-bottom: 20px;
-        }
-
-        .blog-post-content ul, .blog-post-content ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        .blog-post-content li {
-            margin-bottom: 10px;
-        }
-
-        .blog-post-content blockquote {
-            border-left: 4px solid var(--primary-blue);
-            padding-left: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            color: var(--text-light);
-        }
-
-        .blog-post-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            margin: 20px 0;
-        }
-
-        .blog-post-cta {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .blog-post-cta h3 {
-            color: var(--navy-blue);
-            margin-bottom: 15px;
-        }
-
-        .blog-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid var(--medium-gray);
-        }
-
-        .prev-post, .next-post {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .prev-post:hover, .next-post:hover {
-            color: var(--navy-blue);
-            gap: 15px;
-        }
-
-        .back-to-blog {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 30px;
-            transition: var(--transition);
-        }
-
-        .back-to-blog:hover {
-            color: var(--navy-blue);
-            gap: 12px;
-        }
-
-        /* ===== BLOG FILTERS ===== */
-        .blog-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .blog-filter-btn {
-            padding: 10px 20px;
-            background-color: var(--white);
-            border: 2px solid var(--medium-gray);
-            border-radius: 30px;
-            color: var(--text-light);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .blog-filter-btn:hover,
-        .blog-filter-btn.active {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
-            color: var(--white);
-            border-color: var(--primary-blue);
         }
 
         /* ===== MODAL STYLES ===== */
@@ -1260,6 +1153,117 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 450px;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 10;
+            border-left: 4px solid var(--accent-orissa);
+        }
+
+        .map-overlay h3 {
+            color: var(--navy-blue);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .map-overlay p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-overlay i {
+            color: var(--accent-orissa);
+        }
+
+        .map-location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--light-gray);
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .map-location-badge i {
+            color: var(--accent-orissa);
+        }
+
+        .map-location-badge span {
+            font-weight: 600;
+            color: var(--navy-blue);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .map-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .map-stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .map-stat-item i {
+            font-size: 2rem;
+            color: var(--accent-orissa);
+            margin-bottom: 10px;
+        }
+
+        .map-stat-item h4 {
+            font-size: 1.1rem;
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+        }
+
+        .map-stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background-color: var(--navy-blue);
@@ -1390,7 +1394,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .gallery-main-grid {
+            .gallery-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -1486,12 +1490,12 @@
             }
             
             /* Gallery Section */
-            .gallery-main-grid {
+            .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
             
-            .gallery-main-item {
+            .gallery-item {
                 height: 220px;
             }
             
@@ -1503,9 +1507,13 @@
             }
             
             .filter-btn {
-                padding: 8px 16px;
+                padding: 10px 20px;
                 font-size: 0.85rem;
                 white-space: nowrap;
+            }
+            
+            .gallery-actions {
+                flex-direction: column;
             }
             
             /* Blog Section */
@@ -1530,20 +1538,6 @@
                 white-space: nowrap;
             }
             
-            /* Blog Post */
-            .blog-post-title {
-                font-size: 1.6rem;
-            }
-            
-            .blog-post-image {
-                height: 300px;
-            }
-            
-            .blog-navigation {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
             /* Modal */
             .modal-tabs {
                 flex-direction: column;
@@ -1553,9 +1547,22 @@
                 width: 100%;
                 text-align: center;
             }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            /* Map Section */
+            .map-wrapper {
+                height: 400px;
+            }
+
+            .map-overlay {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+            }
+
+            .map-stats {
+                flex-direction: column;
+                gap: 15px;
             }
         }
 
@@ -1592,11 +1599,11 @@
                 grid-template-columns: 1fr;
             }
             
-            .gallery-main-grid {
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
             
-            .gallery-main-item {
+            .gallery-item {
                 height: 200px;
             }
             
@@ -1606,19 +1613,6 @@
             
             .blog-image-container {
                 height: 160px;
-            }
-            
-            .blog-post-title {
-                font-size: 1.4rem;
-            }
-            
-            .blog-post-image {
-                height: 250px;
-            }
-            
-            .blog-post-meta {
-                flex-direction: column;
-                gap: 10px;
             }
             
             .steps {
@@ -1649,6 +1643,10 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+
+            .map-wrapper {
+                height: 350px;
+            }
         }
 
         /* Very Small Devices (max-width: 360px) */
@@ -1676,6 +1674,10 @@
             
             .mobile-whatsapp-btn {
                 right: 50px;
+            }
+
+            .map-wrapper {
+                height: 300px;
             }
         }
     </style>
@@ -1715,7 +1717,9 @@
     <div class="gallery-view-modal" id="galleryViewModal">
         <div class="gallery-modal-content">
             <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
-            <div class="gallery-modal-icon" id="galleryModalIcon"></div>
+            <div class="gallery-modal-icon" id="galleryModalIcon">
+                <i class="fas fa-image"></i>
+            </div>
             <h3 class="gallery-modal-title" id="galleryModalTitle"></h3>
             <p class="gallery-modal-desc" id="galleryModalDesc"></p>
             <div class="gallery-modal-category" id="galleryModalCategory"></div>
@@ -1764,7 +1768,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Book Trusted <span>Professionals</span> Instantly</h1>
-                <p>Find makeup artists, event planners, tutors, electricians, plumbers, carpenters, home automation experts, interior designers, priests for pujas, and many more professionals via WhatsApp.</p>
+                <p>Find makeup artists, event planners, interior designers, home automation experts, tutors, electricians, plumbers, carpenters, and many more professionals via WhatsApp.</p>
                 <div class="cta-buttons">
                     <a href="#categories" class="btn btn-primary">Browse Services</a>
                     <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20professional%20from%20BookMyProfessionals.com" class="btn btn-secondary" target="_blank">
@@ -1777,7 +1781,7 @@
                         <p>Services</p>
                     </div>
                     <div class="stat">
-                        <h3>5,000+</h3>
+                        <h3>10,000+</h3>
                         <p>Happy Customers</p>
                     </div>
                     <div class="stat">
@@ -1804,27 +1808,306 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Enhanced Gallery Section -->
     <section class="gallery-section" id="gallery">
         <div class="container">
             <h2 class="section-title">Our Work Gallery</h2>
-            <p class="section-subtitle">Explore our completed projects and see the quality of our professional services</p>
+            <p class="section-subtitle">Browse through our portfolio of completed projects across different service categories</p>
             
-            <!-- Gallery Filter -->
+            <!-- Gallery Filter Buttons -->
             <div class="gallery-filter" id="galleryFilter">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <!-- Filter buttons will be loaded by JavaScript -->
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="makeup">Makeup & Beauty</button>
+                <button class="filter-btn" data-filter="events">Events & Wedding</button>
+                <button class="filter-btn" data-filter="interior">Interior Design</button>
+                <button class="filter-btn" data-filter="home-automation">Home Automation</button>
+                <button class="filter-btn" data-filter="tutoring">Tutoring</button>
+                <button class="filter-btn" data-filter="plumbing">Plumbing</button>
+                <button class="filter-btn" data-filter="electrical">Electrical</button>
+                <button class="filter-btn" data-filter="carpentry">Carpentry</button>
             </div>
             
             <!-- Gallery Grid -->
-            <div class="gallery-main-grid" id="galleryMainGrid">
-                <!-- Gallery items will be loaded by JavaScript -->
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-calendar-check"></i> Book Similar Service
-                </a>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Makeup & Beauty -->
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bridal Makeup" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bridal Makeup</h3>
+                        <p>Professional bridal makeup with HD finish</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('makeup', 'Bridal Makeup', 'Professional bridal makeup with HD finish and long-lasting formula')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('makeup', 'Bridal Makeup')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Party Makeup" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Party Makeup</h3>
+                        <p>Glamorous party and reception makeup</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('makeup', 'Party Makeup', 'Glamorous party and reception makeup with sparkle')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('makeup', 'Party Makeup')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bridal Hairstyling" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bridal Hairstyling</h3>
+                        <p>Elegant bridal hairstyles and hairdo</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('makeup', 'Bridal Hairstyling', 'Elegant bridal hairstyles with accessories and hair-do')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('makeup', 'Bridal Hairstyling')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://images.unsplash.com/photo-1600948836101-f9ff52b6b4f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mehendi Art" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mehendi Art</h3>
+                        <p>Intricate bridal and party mehendi designs</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('makeup', 'Mehendi Art', 'Intricate bridal and party mehendi designs with henna')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('makeup', 'Mehendi Art')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events & Wedding -->
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wedding Decoration" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Wedding Decoration</h3>
+                        <p>Complete wedding venue decoration and setup</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('events', 'Wedding Decoration', 'Complete wedding venue decoration with flowers and lighting')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('events', 'Wedding Decoration')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wedding Catering" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Wedding Catering</h3>
+                        <p>Delicious wedding buffet and catering</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('events', 'Wedding Catering', 'Delicious wedding buffet and catering services')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('events', 'Wedding Catering')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Stage Decoration" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Stage Decoration</h3>
+                        <p>Elegant wedding stage and mandap decoration</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('events', 'Stage Decoration', 'Elegant wedding stage and mandap decoration with flowers')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('events', 'Stage Decoration')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interior Design -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1618219904412-915fbd798f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Modern Living Room" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Modern Living Room</h3>
+                        <p>Contemporary living room interior design</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('interior', 'Modern Living Room', 'Contemporary living room interior design with modern furniture')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('interior', 'Modern Living Room')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Modular Kitchen" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Modular Kitchen</h3>
+                        <p>Custom modular kitchen with modern amenities</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('interior', 'Modular Kitchen', 'Custom modular kitchen with modern amenities and storage')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('interior', 'Modular Kitchen')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bedroom Interior" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bedroom Interior</h3>
+                        <p>Luxurious master bedroom design</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('interior', 'Bedroom Interior', 'Luxurious master bedroom design with wardrobe')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('interior', 'Bedroom Interior')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Automation -->
+                <div class="gallery-item" data-category="home-automation">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smart Home Setup" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Smart Home Setup</h3>
+                        <p>Complete IoT home automation installation</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('home-automation', 'Smart Home Setup', 'Complete IoT home automation installation with voice control')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('home-automation', 'Smart Home Setup')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="home-automation">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smart Lighting" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Smart Lighting</h3>
+                        <p>Automated lighting with motion sensors</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('home-automation', 'Smart Lighting', 'Automated lighting with motion sensors and scheduling')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('home-automation', 'Smart Lighting')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutoring - updated with a fresh, engaging image -->
+                <div class="gallery-item" data-category="tutoring">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="One-on-One Tutoring" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Personalized Tutoring</h3>
+                        <p>Expert tutors for all subjects & skill development</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('tutoring', 'Personalized Tutoring', 'Expert tutors for all subjects & skill development, online or in-home')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('tutoring', 'Personalized Tutoring')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="tutoring">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Online Tutoring" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Online Tutoring</h3>
+                        <p>Interactive virtual sessions with top educators</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('tutoring', 'Online Tutoring', 'Interactive virtual sessions with top educators via Zoom/Meet')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('tutoring', 'Online Tutoring')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plumbing -->
+                <div class="gallery-item" data-category="plumbing">
+                    <img src="https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bathroom Plumbing" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bathroom Plumbing</h3>
+                        <p>Complete bathroom plumbing installation</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('plumbing', 'Bathroom Plumbing', 'Complete bathroom plumbing installation and repair')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('plumbing', 'Bathroom Plumbing')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Electrical -->
+                <div class="gallery-item" data-category="electrical">
+                    <img src="https://images.unsplash.com/photo-1621967299152-8c5f5c6c8b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Electrical Wiring" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Electrical Wiring</h3>
+                        <p>House electrical rewiring work</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('electrical', 'Electrical Wiring', 'House electrical rewiring work with safety standards')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('electrical', 'Electrical Wiring')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carpentry -->
+                <div class="gallery-item" data-category="carpentry">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Custom Furniture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Custom Furniture</h3>
+                        <p>Handcrafted wooden furniture</p>
+                        <div class="gallery-actions">
+                            <button class="btn-view" onclick="viewGalleryImage('carpentry', 'Custom Furniture', 'Handcrafted wooden furniture for home and office')">
+                                <i class="fas fa-search-plus"></i> View
+                            </button>
+                            <button class="btn-book" onclick="bookFromGalleryWithMessage('carpentry', 'Custom Furniture')">
+                                <i class="fab fa-whatsapp"></i> Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1840,9 +2123,10 @@
                 <button class="blog-filter-btn active" data-category="all">All Articles</button>
                 <button class="blog-filter-btn" data-category="makeup">Makeup & Beauty</button>
                 <button class="blog-filter-btn" data-category="events">Event Planning</button>
+                <button class="blog-filter-btn" data-category="interior">Interior Design</button>
+                <button class="blog-filter-btn" data-category="home-automation">Home Automation</button>
                 <button class="blog-filter-btn" data-category="tutoring">Tutoring</button>
                 <button class="blog-filter-btn" data-category="home">Home Services</button>
-                <button class="blog-filter-btn" data-category="home-automation">Home Automation</button>
                 <button class="blog-filter-btn" data-category="tips">Tips & Guides</button>
             </div>
             
@@ -2018,6 +2302,74 @@
         </div>
     </section>
 
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <h2 class="section-title">Serving Across Odisha</h2>
+            <p class="section-subtitle">We provide professional services throughout Odisha - from Bhubaneswar to Rourkela, Cuttack to Puri</p>
+            
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <!-- Google Maps Embed focusing on Odisha -->
+                    <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1911365.672633892!2d83.51265335!3d20.272819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2345f0e3d3c3d5%3A0x1b3c8e9f2d4a5b6c!2sOdisha%2C%20India!5e0!3m2!1sen!2sin!4v1645567890123!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    
+                    <!-- Map Overlay with location info -->
+                    <div class="map-overlay">
+                        <h3><i class="fas fa-map-marker-alt" style="color: var(--accent-orissa);"></i> Odisha Service Area</h3>
+                        <p>We cover all major cities and towns across Odisha</p>
+                        <div class="map-location-badge">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Primary Hub:</span> Bhubaneswar, Odisha
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Coverage Stats -->
+            <div class="map-stats">
+                <div class="map-stat-item">
+                    <i class="fas fa-city"></i>
+                    <h4>30+ Cities</h4>
+                    <p>Across Odisha</p>
+                </div>
+                <div class="map-stat-item">
+                    <i class="fas fa-users"></i>
+                    <h4>10,000+</h4>
+                    <p>Happy Customers in Odisha</p>
+                </div>
+                <div class="map-stat-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>24/7 Service</h4>
+                    <p>In Major Cities</p>
+                </div>
+                <div class="map-stat-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Free Consultation</h4>
+                    <p>Within 50km radius</p>
+                </div>
+            </div>
+            
+            <!-- Major Cities List -->
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; padding: 20px; background: var(--light-gray); border-radius: var(--border-radius);">
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Bhubaneswar</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Cuttack</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Puri</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Rourkela</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Berhampur</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Sambalpur</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Balasore</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Bhadrak</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Jajpur</span>
+                <span class="filter-btn" style="cursor: default; background: white;"><i class="fas fa-check-circle" style="color: var(--accent-orissa);"></i> Kendujhar</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -2027,7 +2379,7 @@
                         <i class="fas fa-hands-helping"></i>
                         <span>BookMyProfessionals</span>
                     </a>
-                    <p>Your trusted platform for booking verified professionals instantly via WhatsApp.</p>
+                    <p>Your trusted platform for booking verified professionals instantly via WhatsApp, serving customers across Odisha and beyond.</p>
                     <div class="social-links">
                         <a href="https://wa.me/917008743587" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -2044,6 +2396,7 @@
                         <li><a href="#blog">Blog</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#map">Service Area</a></li>
                     </ul>
                 </div>
                 
@@ -2060,13 +2413,14 @@
                         <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917008743587" target="_blank">+91 70087 43587</a></li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+917008743587">70087 43587</a></li>
                         <li><i class="fas fa-envelope"></i> bookings@bookmyprofessionals.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Service available across India</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Head Office: Bhubaneswar, Odisha</li>
+                        <li><i class="fas fa-globe"></i> Serving across Odisha</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 BookMyProfessionals.com. All rights reserved.</p>
+                <p>&copy; 2023 BookMyProfessionals.com. All rights reserved. Proudly serving Odisha.</p>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -2082,8 +2436,9 @@
             categories: [
                 {id: "makeup", name: "Makeup & Beauty", icon: "fa-spa", desc: "Bridal, party, hairstyling, mehendi", highlight: true},
                 {id: "events", name: "Event & Wedding", icon: "fa-glass-cheers", desc: "Planning, makeup, catering, decoration", highlight: true},
+                {id: "interior", name: "Interior Design", icon: "fa-pencil-ruler", desc: "Home interiors, modular kitchen, wardrobes", highlight: true},
                 {id: "home-automation", name: "Home Automation", icon: "fa-robot", desc: "IoT, smart lighting, security systems", highlight: true},
-                {id: "tutoring", name: "Tutoring Services", icon: "fa-graduation-cap", desc: "Academic, skill-based, online/offline"},
+                {id: "tutoring", name: "Tutoring Services", icon: "fa-graduation-cap", desc: "Academic, skill-based, online/offline", highlight: true}, // now highlighted
                 {id: "plumbing", name: "Plumbing", icon: "fa-faucet", desc: "Installation, repair, maintenance"},
                 {id: "electrical", name: "Electrical", icon: "fa-bolt", desc: "Wiring, installations, electrical work"},
                 {id: "carpentry", name: "Carpentry", icon: "fa-hammer", desc: "Woodwork, furniture, installation"},
@@ -2109,6 +2464,26 @@
                 {service: "Wedding Coordinator", subservice: "Day-of coordination"},
                 {service: "Bridal Makeup Artist", subservice: "Airbrush, HD makeup"},
                 {service: "Wedding Catering", subservice: "Full wedding meals"}
+            ],
+            interior: [
+                {service: "Full Home Interior Design", subservice: "Complete home makeover, 2D/3D design"},
+                {service: "Modular Kitchen Design & Installation", subservice: "Custom modular kitchens"},
+                {service: "Wardrobe & Storage Design", subservice: "Custom wardrobes, closets"},
+                {service: "Living Room Interior Design", subservice: "Furniture layout, theme"},
+                {service: "Bedroom Interior Design", subservice: "Master bedroom, kids room"},
+                {service: "Bathroom Interior Design", subservice: "Modern bathroom remodeling"},
+                {service: "Pooja Room Design", subservice: "Traditional & modern pooja units"},
+                {service: "False Ceiling Design & Installation", subservice: "POP, gypsum ceilings"},
+                {service: "Furniture Design & Customization", subservice: "Sofas, beds, dining sets"},
+                {service: "TV Unit & Entertainment Unit Design", subservice: "Custom TV units"},
+                {service: "Space Planning & Layout", subservice: "Floor plan optimization"},
+                {service: "3D Interior Rendering & Visualization", subservice: "Photorealistic renders"},
+                {service: "Wall Design & Texturing", subservice: "Feature walls, 3D panels"},
+                {service: "Home Lighting Design", subservice: "Ambient, task, accent lighting"},
+                {service: "Colour Consultation", subservice: "Paint & theme colour selection"},
+                {service: "Home Decor & Styling", subservice: "Curtains, rugs, artifacts"},
+                {service: "Balcony & Terrace Interior", subservice: "Outdoor seating, planters"},
+                {service: "Commercial Interior Design", subservice: "Office, shop, restaurant"}
             ],
             "home-automation": [
                 {service: "Smart Lighting Installation", subservice: "Philips Hue, remote control, motion sensing, scheduling"},
@@ -2186,75 +2561,7 @@
                 id: 1,
                 title: "How to Choose the Perfect Makeup Artist for Your Wedding",
                 excerpt: "Discover 7 essential factors to consider when selecting a wedding makeup artist. Professional tips for flawless bridal makeup.",
-                content: `
-                    <h2>Why Choosing the Right Makeup Artist Matters</h2>
-                    <p>Your wedding day is one of the most important days of your life, and your appearance plays a crucial role in how you feel and how you're remembered. The right makeup artist can enhance your natural beauty and ensure you look flawless in photos that will last a lifetime.</p>
-                    
-                    <h2>1. Review Their Portfolio Thoroughly</h2>
-                    <p>A professional makeup artist should have a comprehensive portfolio showcasing their work. Look for:</p>
-                    <ul>
-                        <li><strong>Diversity in skin tones:</strong> Can they work with different complexions?</li>
-                        <li><strong>Style consistency:</strong> Do they have a signature style that matches your vision?</li>
-                        <li><strong>Attention to detail:</strong> Check close-up photos for precision</li>
-                        <li><strong>Before/after shots:</strong> Real transformations tell the true story</li>
-                    </ul>
-                    
-                    <h2>2. Schedule a Trial Session</h2>
-                    <p>Never book a makeup artist without a trial. This is your opportunity to:</p>
-                    <ul>
-                        <li>Test their skills firsthand</li>
-                        <li>See how makeup lasts throughout the day</li>
-                        <li>Communicate your preferences clearly</li>
-                        <li>Check for any allergic reactions to products</li>
-                    </ul>
-                    
-                    <blockquote>Pro Tip: Schedule your trial at least 2-3 months before your wedding. Bring photos of makeup looks you like and wear a white top to simulate how makeup will look against your wedding attire.</blockquote>
-                    
-                    <h2>3. Verify Professional Experience</h2>
-                    <p>Ask these important questions:</p>
-                    <ul>
-                        <li>How many years of professional experience do you have?</li>
-                        <li>How many weddings have you worked on?</li>
-                        <li>Do you have formal training or certifications?</li>
-                        <li>Can you provide references from past clients?</li>
-                    </ul>
-                    
-                    <h2>4. Understand the Pricing Structure</h2>
-                    <p>Make sure you understand exactly what's included:</p>
-                    <ul>
-                        <li>Trial session cost (usually separate)</li>
-                        <li>Travel fees if applicable</li>
-                        <li>Touch-up services during the event</li>
-                        <li>Additional charges for extra people</li>
-                    </ul>
-                    
-                    <h2>5. Check Their Professionalism</h2>
-                    <p>A great makeup artist is also a professional businessperson. Look for:</p>
-                    <ul>
-                        <li>Prompt responses to inquiries</li>
-                        <li>Clear contract with terms and conditions</li>
-                        <li>Professional liability insurance</li>
-                        <li>Backup plan for emergencies</li>
-                    </ul>
-                    
-                    <h2>6. Consider Their Availability</h2>
-                    <p>Popular makeup artists book up quickly, especially during wedding season. Ideally, you should book 6-12 months in advance for peak season dates.</p>
-                    
-                    <h2>7. Trust Your Instincts</h2>
-                    <p>Finally, choose someone you feel comfortable with. You'll be spending several hours with this person on one of the most important days of your life. Personal chemistry matters!</p>
-                    
-                    <h2>Final Checklist</h2>
-                    <ul>
-                        <li>✓ Portfolio reviewed and impressed</li>
-                        <li>✓ Trial session completed successfully</li>
-                        <li>✓ References checked and verified</li>
-                        <li>✓ Contract reviewed and signed</li>
-                        <li>✓ Deposit paid to secure date</li>
-                        <li>✓ Final consultation scheduled</li>
-                    </ul>
-                    
-                    <p>By following these steps, you'll find a makeup artist who not only has the technical skills but also understands your vision and can bring it to life on your special day.</p>
-                `,
+                content: `...`,
                 image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 category: "makeup",
                 date: "2023-10-15",
@@ -2265,98 +2572,7 @@
                 id: 2,
                 title: "Essential Plumbing Maintenance Every Homeowner Should Know",
                 excerpt: "Prevent costly plumbing disasters with these simple monthly checks. Learn what to look for and when to call a professional.",
-                content: `
-                    <h2>The Importance of Regular Plumbing Maintenance</h2>
-                    <p>A small leak ignored today can become a major disaster tomorrow. Regular plumbing maintenance can save you thousands in repairs and prevent water damage to your home.</p>
-                    
-                    <h2>Monthly Plumbing Checks</h2>
-                    
-                    <h3>1. Inspect for Leaks</h3>
-                    <p>Check these common areas monthly:</p>
-                    <ul>
-                        <li><strong>Under sinks:</strong> Look for moisture, stains, or mold</li>
-                        <li><strong>Around toilets:</strong> Check base and supply line</li>
-                        <li><strong>Water heater:</strong> Look for pooling water or rust</li>
-                        <li><strong>Appliances:</strong> Check washing machine and dishwasher connections</li>
-                    </ul>
-                    
-                    <h3>2. Test Water Pressure</h3>
-                    <p>Low water pressure can indicate mineral buildup, while high pressure can damage pipes. Ideal pressure is 40-60 PSI.</p>
-                    
-                    <h3>3. Check Toilet Functionality</h3>
-                    <p>Listen for running water and check for slow leaks by adding food coloring to the tank. If color appears in the bowl without flushing, you have a leak.</p>
-                    
-                    <h2>Seasonal Maintenance Tasks</h2>
-                    
-                    <h3>Spring (March-May)</h3>
-                    <ul>
-                        <li>Inspect outdoor faucets after winter</li>
-                        <li>Check sprinkler systems for damage</li>
-                        <li>Clean gutters and downspouts</li>
-                    </ul>
-                    
-                    <h3>Summer (June-August)</h3>
-                    <ul>
-                        <li>Check for tree roots near sewer lines</li>
-                        <li>Inspect swimming pool plumbing</li>
-                        <li>Test sump pump if you have one</li>
-                    </ul>
-                    
-                    <h3>Fall (September-November)</h3>
-                    <ul>
-                        <li>Winterize outdoor faucets</li>
-                        <li>Insulate exposed pipes</li>
-                        <li>Drain and store garden hoses</li>
-                    </ul>
-                    
-                    <h3>Winter (December-February)</h3>
-                    <ul>
-                        <li>Keep cabinet doors open to allow warm air circulation</li>
-                        <li>Let faucets drip during extreme cold</li>
-                        <li>Know where your main water shut-off valve is located</li>
-                    </ul>
-                    
-                    <h2>When to DIY vs Call a Professional</h2>
-                    
-                    <h3>DIY Tasks (Basic Skills Required)</h3>
-                    <ul>
-                        <li>Replacing faucet washers</li>
-                        <li>Cleaning showerheads</li>
-                        <li>Unclogging simple drain blockages</li>
-                        <li>Replacing toilet flappers</li>
-                    </ul>
-                    
-                    <h3>Call a Professional</h3>
-                    <ul>
-                        <li>Major leaks or pipe bursts</li>
-                        <li>Sewer line issues</li>
-                        <li>Water heater installation/repair</li>
-                        <li>Re-piping projects</li>
-                        <li>Gas line work (ALWAYS professional)</li>
-                    </ul>
-                    
-                    <h2>Emergency Preparedness</h2>
-                    <p>Every homeowner should:</p>
-                    <ul>
-                        <li>Know the location of the main water shut-off valve</li>
-                        <li>Keep basic plumbing tools handy (wrench, plunger, drain snake)</li>
-                        <li>Have emergency contact numbers readily available</li>
-                        <li>Know basic first-aid for plumbing emergencies</li>
-                    </ul>
-                    
-                    <blockquote>Safety First: If you smell gas or suspect a gas leak, evacuate immediately and call your gas company from outside your home.</blockquote>
-                    
-                    <h2>Maintenance Schedule Summary</h2>
-                    <ul>
-                        <li><strong>Daily:</strong> Listen for unusual sounds</li>
-                        <li><strong>Weekly:</strong> Check for visible leaks</li>
-                        <li><strong>Monthly:</strong> Test water pressure and inspect fixtures</li>
-                        <li><strong>Quarterly:</strong> Clean aerators and showerheads</li>
-                        <li><strong>Annually:</strong> Professional inspection recommended</li>
-                    </ul>
-                    
-                    <p>Regular maintenance is the key to avoiding expensive plumbing emergencies. A little attention goes a long way in preserving your home's plumbing system.</p>
-                `,
+                content: `...`,
                 image: "https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 category: "home",
                 date: "2023-10-10",
@@ -2367,129 +2583,7 @@
                 id: 3,
                 title: "Finding the Right Tutor for Your Child: A Complete Guide",
                 excerpt: "Learn how to select the perfect tutor based on your child's learning style, academic needs, and personality.",
-                content: `
-                    <h2>Understanding Your Child's Learning Needs</h2>
-                    <p>Before searching for a tutor, it's crucial to understand your child's specific needs. Are they struggling with a particular subject, need help with study skills, or require advanced enrichment?</p>
-                    
-                    <h2>Types of Tutors Available</h2>
-                    
-                    <h3>1. Subject-Specific Tutors</h3>
-                    <p>Specialists in particular subjects like Mathematics, Science, or Languages. Best for students struggling with specific academic areas.</p>
-                    
-                    <h3>2. Homework Help Tutors</h3>
-                    <p>Assist with daily assignments and organization. Ideal for students who need structure and accountability.</p>
-                    
-                    <h3>3. Test Preparation Tutors</h3>
-                    <p>Specialize in standardized tests like SAT, ACT, or competitive exams. Focus on test-taking strategies and content review.</p>
-                    
-                    <h3>4. Learning Style Specialists</h3>
-                    <p>Trained to work with different learning styles (visual, auditory, kinesthetic) and special needs.</p>
-                    
-                    <h2>Key Factors to Consider</h2>
-                    
-                    <h3>1. Qualifications and Experience</h3>
-                    <ul>
-                        <li>Educational background in the subject area</li>
-                        <li>Teaching certifications if required</li>
-                        <li>Years of tutoring experience</li>
-                        <li>References from previous clients</li>
-                    </ul>
-                    
-                    <h3>2. Teaching Methodology</h3>
-                    <p>Ask potential tutors about their approach:</p>
-                    <ul>
-                        <li>How do they assess student needs?</li>
-                        <li>What materials do they use?</li>
-                        <li>How do they track progress?</li>
-                        <li>What's their homework policy?</li>
-                    </ul>
-                    
-                    <h3>3. Personality Match</h3>
-                    <p>The tutor-student relationship is crucial. Look for:</p>
-                    <ul>
-                        <li>Patience and empathy</li>
-                        <li>Ability to motivate your child</li>
-                        <li>Communication style that matches your child's personality</li>
-                        <li>Enthusiasm for the subject</li>
-                    </ul>
-                    
-                    <h2>The Selection Process</h2>
-                    
-                    <h3>Step 1: Initial Assessment</h3>
-                    <p>Most good tutors will want to assess your child's current level before starting. This might include:</p>
-                    <ul>
-                        <li>Reviewing recent schoolwork and test scores</li>
-                        <li>Brief diagnostic test</li>
-                        <li>Discussion about learning challenges</li>
-                    </ul>
-                    
-                    <h3>Step 2: Trial Session</h3>
-                    <p>Always request a trial session to observe:</p>
-                    <ul>
-                        <li>How the tutor interacts with your child</li>
-                        <li>Teaching methods and materials used</li>
-                        <li>Your child's comfort level and engagement</li>
-                    </ul>
-                    
-                    <h3>Step 3: Progress Monitoring</h3>
-                    <p>Establish clear expectations for progress reports:</p>
-                    <ul>
-                        <li>Regular updates (weekly or bi-weekly)</li>
-                        <li>Specific feedback on areas of improvement</li>
-                        <li>Communication with school teachers if needed</li>
-                    </ul>
-                    
-                    <h2>Online vs In-Person Tutoring</h2>
-                    
-                    <h3>Online Tutoring Advantages</h3>
-                    <ul>
-                        <li>Access to specialized tutors worldwide</li>
-                        <li>Flexible scheduling</li>
-                        <li>No travel time</li>
-                        <li>Digital learning tools</li>
-                    </ul>
-                    
-                    <h3>In-Person Tutoring Advantages</h3>
-                    <ul>
-                        <li>Direct, hands-on interaction</li>
-                        <li>Better for hands-on learners</li>
-                        <li>Fewer technical issues</li>
-                        <li>Local community connection</li>
-                    </ul>
-                    
-                    <h2>Questions to Ask Potential Tutors</h2>
-                    <ul>
-                        <li>What is your educational background?</li>
-                        <li>How many years have you been tutoring?</li>
-                        <li>Can you provide references?</li>
-                        <li>What is your cancellation policy?</li>
-                        <li>How do you handle homework assignments?</li>
-                        <li>What materials do you provide?</li>
-                        <li>How do you measure progress?</li>
-                        <li>What is your preferred communication method with parents?</li>
-                    </ul>
-                    
-                    <h2>Setting Realistic Expectations</h2>
-                    <p>Remember that tutoring is a process. Significant improvement usually takes:</p>
-                    <ul>
-                        <li><strong>Immediate:</strong> Better understanding of current material</li>
-                        <li><strong>1-2 months:</strong> Improved grades and confidence</li>
-                        <li><strong>3-6 months:</strong> Developed study skills and independence</li>
-                    </ul>
-                    
-                    <blockquote>Success Tip: The most effective tutoring happens when parents, students, and tutors work together as a team with clear communication and shared goals.</blockquote>
-                    
-                    <h2>When to Reevaluate</h2>
-                    <p>Consider changing tutors if:</p>
-                    <ul>
-                        <li>No progress after 8-10 sessions</li>
-                        <li>Your child consistently resists sessions</li>
-                        <li>The tutor is frequently unprepared or late</li>
-                        <li>Communication with the tutor breaks down</li>
-                    </ul>
-                    
-                    <p>Finding the right tutor can make a significant difference in your child's academic journey. Take your time, ask the right questions, and trust your instincts.</p>
-                `,
+                content: `...`,
                 image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 category: "tutoring",
                 date: "2023-10-05",
@@ -2500,226 +2594,7 @@
                 id: 4,
                 title: "Smart Home Automation: Transforming Your Living Space with IoT",
                 excerpt: "Discover how home automation using IoT can enhance convenience, security, and energy efficiency in your home.",
-                content: `
-                    <h2>The Future is Smart: Introduction to Home Automation</h2>
-                    <p>Home automation is revolutionizing how we interact with our living spaces. By connecting devices through the Internet of Things (IoT), homeowners can enjoy unprecedented levels of convenience, security, and energy efficiency.</p>
-                    
-                    <h2>What is IoT Home Automation?</h2>
-                    <p>IoT home automation involves connecting various household devices and systems to the internet, allowing them to communicate with each other and be controlled remotely via smartphones, tablets, or voice commands.</p>
-                    
-                    <h2>Key Benefits of Home Automation</h2>
-                    
-                    <h3>1. Enhanced Convenience</h3>
-                    <ul>
-                        <li><strong>Remote Control:</strong> Control lights, thermostat, and appliances from anywhere</li>
-                        <li><strong>Automated Routines:</strong> Set schedules for lights to turn on/off automatically</li>
-                        <li><strong>Voice Commands:</strong> Use Alexa, Google Assistant, or Siri for hands-free control</li>
-                        <li><strong>Scene Creation:</strong> "Good Morning" scene that opens blinds, starts coffee maker, and adjusts thermostat</li>
-                    </ul>
-                    
-                    <h3>2. Improved Security</h3>
-                    <ul>
-                        <li><strong>Smart Security Cameras:</strong> Monitor your home 24/7 with motion detection</li>
-                        <li><strong>Smart Locks:</strong> Keyless entry and remote locking/unlocking</li>
-                        <li><strong>Motion Sensors:</strong> Detect unusual activity and send alerts</li>
-                        <li><strong>Smart Doorbells:</strong> See and speak with visitors remotely</li>
-                    </ul>
-                    
-                    <h3>3. Energy Efficiency</h3>
-                    <ul>
-                        <li><strong>Smart Thermostats:</strong> Learn your schedule and optimize heating/cooling</li>
-                        <li><strong>Smart Lighting:</strong> Automatically turn off lights when rooms are empty</li>
-                        <li><strong>Energy Monitoring:</strong> Track electricity usage in real-time</li>
-                        <li><strong>Smart Plugs:</strong> Schedule appliances to run during off-peak hours</li>
-                    </ul>
-                    
-                    <h3>4. Safety Features</h3>
-                    <ul>
-                        <li><strong>Smoke/CO2 Detectors:</strong> Smart alerts to your phone</li>
-                        <li><strong>Water Leak Sensors:</strong> Detect leaks before they cause damage</li>
-                        <li><strong>Gas Leak Detection:</strong> Immediate alerts for dangerous situations</li>
-                        <li><strong>Gas Cylinder Level Alerts:</strong> Get notified before gas runs out</li>
-                    </ul>
-                    
-                    <h2>Popular Home Automation Systems</h2>
-                    
-                    <h3>1. Entry-Level Systems</h3>
-                    <p>Perfect for beginners who want to start small:</p>
-                    <ul>
-                        <li><strong>Smart Speakers:</strong> Amazon Echo, Google Nest</li>
-                        <li><strong>Smart Bulbs:</strong> Philips Hue, LIFX</li>
-                        <li><strong>Smart Plugs:</strong> TP-Link Kasa, Wemo</li>
-                        <li><strong>Basic Security:</strong> Ring doorbell, Blink cameras</li>
-                    </ul>
-                    
-                    <h3>2. Mid-Range Systems</h3>
-                    <p>For homeowners wanting more integration:</p>
-                    <ul>
-                        <li><strong>Smart Thermostats:</strong> Nest, Ecobee</li>
-                        <li><strong>Complete Lighting:</strong> Whole-home smart lighting</li>
-                        <li><strong>Security Systems:</strong> ADT, SimpliSafe with monitoring</li>
-                        <li><strong>Smart Appliances:</strong> Refrigerators, washers with WiFi</li>
-                    </ul>
-                    
-                    <h3>3. Professional/High-End Systems</h3>
-                    <p>Whole-home automation with professional installation:</p>
-                    <ul>
-                        <li><strong>Control4:</strong> Complete home automation platform</li>
-                        <li><strong>Crestron:</strong> Luxury home automation</li>
-                        <li><strong>Savant:</strong> High-end integration</li>
-                        <li><strong>Home Assistant:</strong> DIY professional-grade system</li>
-                    </ul>
-                    
-                    <h2>Essential Home Automation Components</h2>
-                    
-                    <h3>1. Hub/Controller</h3>
-                    <p>The brain of your smart home that connects all devices:</p>
-                    <ul>
-                        <li><strong>Standalone Hubs:</strong> Samsung SmartThings, Hubitat</li>
-                        <li><strong>Built-in Hubs:</strong> Amazon Echo Plus, Apple HomePod</li>
-                        <li><strong>Software Hubs:</strong> Home Assistant on Raspberry Pi</li>
-                    </ul>
-                    
-                    <h3>2. Communication Protocols</h3>
-                    <p>How your devices talk to each other:</p>
-                    <ul>
-                        <li><strong>WiFi:</strong> Common, easy to set up</li>
-                        <li><strong>Zigbee:</strong> Low power, mesh network</li>
-                        <li><strong>Z-Wave:</strong> Reliable, interference-free</li>
-                        <li><strong>Bluetooth:</strong> Short range, direct connection</li>
-                        <li><strong>Thread:</strong> New standard for better connectivity</li>
-                    </ul>
-                    
-                    <h3>3. Sensors and Actuators</h3>
-                    <p>The eyes, ears, and hands of your smart home:</p>
-                    <ul>
-                        <li><strong>Motion Sensors:</strong> Detect movement for lighting/security</li>
-                        <li><strong>Contact Sensors:</strong> Detect door/window opening</li>
-                        <li><strong>Temperature Sensors:</strong> For climate control</li>
-                        <li><strong>Smart Relays:</strong> Control traditional switches/outlets</li>
-                    </ul>
-                    
-                    <h2>Getting Started with Home Automation</h2>
-                    
-                    <h3>Step 1: Define Your Goals</h3>
-                    <p>What do you want to achieve?</p>
-                    <ul>
-                        <li>Convenience (voice control, automation)</li>
-                        <li>Security (cameras, alerts)</li>
-                        <li>Energy savings (smart thermostats, lighting)</li>
-                        <li>Entertainment (whole-home audio/video)</li>
-                    </ul>
-                    
-                    <h3>Step 2: Start Small</h3>
-                    <p>Begin with one or two devices:</p>
-                    <ul>
-                        <li>Smart speaker for voice control</li>
-                        <li>Smart bulbs for basic automation</li>
-                        <li>Smart plug for appliance control</li>
-                    </ul>
-                    
-                    <h3>Step 3: Expand Gradually</h3>
-                    <p>Add devices based on your needs:</p>
-                    <ul>
-                        <li>Security devices (cameras, doorbell)</li>
-                        <li>Climate control (smart thermostat)</li>
-                        <li>Whole-home lighting</li>
-                        <li>Smart appliances</li>
-                    </ul>
-                    
-                    <blockquote>Pro Tip: When choosing devices, consider compatibility. Stick to one ecosystem (Google, Amazon, Apple) or choose devices that work with multiple platforms.</blockquote>
-                    
-                    <h3>Step 4: Create Automation Rules</h3>
-                    <p>Make your devices work together:</p>
-                    <ul>
-                        <li>"Good Night" scene: Lock doors, turn off lights, adjust thermostat</li>
-                        <li>"Away Mode": Turn on security, adjust temperature, simulate occupancy</li>
-                        <li>"Movie Time": Dim lights, close blinds, start entertainment system</li>
-                    </ul>
-                    
-                    <h2>Common Home Automation Scenarios</h2>
-                    
-                    <h3>Morning Routine</h3>
-                    <ul>
-                        <li>6:30 AM: Bedroom lights gradually brighten</li>
-                        <li>6:45 AM: Coffee maker starts brewing</li>
-                        <li>7:00 AM: Bathroom heated floor turns on</li>
-                        <li>7:15 AM: News briefing plays on smart speaker</li>
-                    </ul>
-                    
-                    <h3>Energy Saving</h3>
-                    <ul>
-                        <li>Lights automatically turn off when room is empty</li>
-                        <li>Thermostat adjusts when everyone leaves home</li>
-                        <li>Appliances run during off-peak electricity hours</li>
-                        <li>Blinds close during hottest part of day</li>
-                    </ul>
-                    
-                    <h3>Security Enhancement</h3>
-                    <ul>
-                        <li>Cameras start recording when motion detected</li>
-                        <li>Lights turn on when motion detected at night</li>
-                        <li>Door locks automatically at bedtime</li>
-                        <li>Alerts sent if windows are opened while away</li>
-                    </ul>
-                    
-                    <h2>DIY vs Professional Installation</h2>
-                    
-                    <h3>DIY (Do-It-Yourself)</h3>
-                    <p><strong>Pros:</strong></p>
-                    <ul>
-                        <li>Lower initial cost</li>
-                        <li>Flexibility to choose devices</li>
-                        <li>Can expand slowly over time</li>
-                        <li>Learning experience</li>
-                    </ul>
-                    <p><strong>Cons:</strong></p>
-                    <ul>
-                        <li>Requires technical knowledge</li>
-                        <li>Time-consuming setup</li>
-                        <li>Potential compatibility issues</li>
-                        <li>No professional support</li>
-                    </ul>
-                    
-                    <h3>Professional Installation</h3>
-                    <p><strong>Pros:</strong></p>
-                    <ul>
-                        <li>Expert system design</li>
-                        <li>Professional installation quality</li>
-                        <li>Technical support and maintenance</li>
-                        <li>Warranty and reliability</li>
-                    </ul>
-                    <p><strong>Cons:</strong></p>
-                    <ul>
-                        <li>Higher initial cost</li>
-                        <li>Less flexibility after installation</li>
-                        <li>Vendor lock-in potential</li>
-                        <li>Scheduled maintenance required</li>
-                    </ul>
-                    
-                    <h2>Future Trends in Home Automation</h2>
-                    <ul>
-                        <li><strong>AI Integration:</strong> Systems that learn your habits and preferences</li>
-                        <li><strong>Edge Computing:</strong> Faster response times with local processing</li>
-                        <li><strong>5G Connectivity:</strong> Faster and more reliable connections</li>
-                        <li><strong>Health Monitoring:</strong> Systems that monitor air quality and health metrics</li>
-                        <li><strong>Sustainable Automation:</strong> Integration with renewable energy systems</li>
-                    </ul>
-                    
-                    <h2>Getting Professional Help</h2>
-                    <p>While DIY options exist, professional installation ensures:</p>
-                    <ul>
-                        <li>Proper system design for your specific needs</li>
-                        <li>Reliable installation and setup</li>
-                        <li>Ongoing technical support</li>
-                        <li>Integration with existing systems</li>
-                        <li>Warranty and maintenance plans</li>
-                    </ul>
-                    
-                    <blockquote>Smart Tip: Start with a consultation. Many professional home automation companies offer free consultations to assess your needs and provide recommendations.</blockquote>
-                    
-                    <p>Home automation is no longer a luxury reserved for the wealthy. With affordable options and easy-to-use systems, anyone can enjoy the benefits of a smarter, more efficient, and secure home.</p>
-                `,
+                content: `...`,
                 image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 category: "home-automation",
                 date: "2023-10-20",
@@ -2728,22 +2603,10 @@
             }
         ];
 
-        // ===== GALLERY DATA =====
-        const MAIN_GALLERY = [
-            {id: 1, category: "makeup", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Bridal Makeup", desc: "Professional bridal makeup service"},
-            {id: 2, category: "events", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Wedding Decoration", desc: "Complete wedding venue setup"},
-            {id: 3, category: "tutoring", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Online Tutoring", desc: "Virtual tutoring sessions"},
-            {id: 4, category: "plumbing", image: "https://images.unsplash.com/photo-1621967299229-c6e7085a7e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Professional Plumbing", desc: "Bathroom plumbing installation"},
-            {id: 5, category: "electrical", image: "https://images.unsplash.com/photo-1621967299152-8c5f5c6c8b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Electrical Wiring", desc: "House electrical rewiring work"},
-            {id: 6, category: "carpentry", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Custom Furniture", desc: "Handcrafted wooden furniture"},
-            {id: 7, category: "home-automation", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", title: "Smart Home Setup", desc: "Complete IoT home automation installation"}
-        ];
-
         // ===== DOM ELEMENTS =====
         const menuToggle = document.getElementById('menuToggle');
         const mobileWhatsAppBtn = document.getElementById('mobileWhatsAppBtn');
         const navLinks = document.querySelector('.nav-links');
-        const navCta = document.querySelector('.nav-cta');
         const categoryGrid = document.querySelector('.category-grid');
         const popularServices = document.getElementById('popularServices');
         const serviceSelect = document.getElementById('service');
@@ -2755,80 +2618,26 @@
         const modalTabs = document.querySelectorAll('.modal-tab');
         const tabContents = document.querySelectorAll('.modal-tab-content');
         const galleryFilter = document.getElementById('galleryFilter');
-        const galleryMainGrid = document.getElementById('galleryMainGrid');
+        const galleryGrid = document.getElementById('galleryGrid');
         const blogGrid = document.getElementById('blogGrid');
         const blogFilters = document.getElementById('blogFilters');
         const blogPostPage = document.getElementById('blogPostPage');
         const backToBlog = document.getElementById('backToBlog');
         const galleryViewModal = document.getElementById('galleryViewModal');
         let currentCategory = null;
-        let pageInitialized = false;
 
         // ===== PAGE LOAD HANDLING =====
-        // Store the hash before any JavaScript runs
-        const initialHash = window.location.hash;
-
-        // Clear the hash temporarily to prevent auto-scroll
-        if (initialHash) {
-            window.location.hash = '';
-        }
-
-        // ===== INITIALIZE WEBSITE =====
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit for DOM to be fully ready
-            setTimeout(() => {
-                initializeWebsite();
-                setupEventListeners();
-                initializeBlog();
-                
-                // Now restore the hash and handle navigation
-                if (initialHash) {
-                    // Add small delay to ensure everything is loaded
-                    setTimeout(() => {
-                        handleInitialHash(initialHash);
-                    }, 100);
-                }
-                
-                pageInitialized = true;
-            }, 50);
+            initializeWebsite();
+            setupEventListeners();
+            initializeBlog();
+            initializeGalleryFilters();
         });
-
-        function handleInitialHash(hash) {
-            if (!hash) return;
-            
-            // Remove # from hash
-            const sectionId = hash.substring(1);
-            
-            // Check if it's a blog post
-            if (hash.includes('blog?post=')) {
-                const postId = new URLSearchParams(hash.split('?')[1]).get('post');
-                if (postId) {
-                    showBlogPost(parseInt(postId));
-                }
-                return;
-            }
-            
-            // Find the section element
-            const targetElement = document.getElementById(sectionId);
-            if (targetElement) {
-                // Smooth scroll to section with offset for header
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }, 300);
-            }
-            
-            // Restore the hash in URL
-            window.history.replaceState(null, null, hash);
-        }
 
         function initializeWebsite() {
             loadCategories();
             loadPopularServices();
             loadServiceOptions();
-            loadMainGallery();
             setupSmoothScrolling();
         }
 
@@ -2874,7 +2683,7 @@
         }
 
         function loadPopularServices() {
-            const popular = CONFIG.categories.filter(cat => cat.highlight).concat(CONFIG.categories.filter(cat => !cat.highlight).slice(0, 2));
+            const popular = CONFIG.categories.filter(cat => cat.highlight).slice(0, 5); // now tutoring is included
             popularServices.innerHTML = popular.map(category => `
                 <li><a href="#" onclick="showCategory('${category.id}'); return false;">${category.name}</a></li>
             `).join('');
@@ -2885,72 +2694,6 @@
                 CONFIG.categories.map(category => `
                     <option value="${category.id}">${category.name}</option>
                 `).join('');
-        }
-
-        function loadMainGallery() {
-            // Create filter buttons
-            const categories = [...new Set(MAIN_GALLERY.map(item => item.category))];
-            const categoryNames = {};
-            
-            CONFIG.categories.forEach(cat => {
-                categoryNames[cat.id] = cat.name;
-            });
-            
-            galleryFilter.innerHTML = `
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                ${categories.map(cat => `
-                    <button class="filter-btn" data-filter="${cat}">${categoryNames[cat] || cat}</button>
-                `).join('')}
-            `;
-            
-            // Load all gallery items
-            renderGalleryItems(MAIN_GALLERY);
-            
-            // Add event listeners to filter buttons
-            galleryFilter.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Update active button
-                    galleryFilter.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const filter = this.dataset.filter;
-                    
-                    if (filter === 'all') {
-                        renderGalleryItems(MAIN_GALLERY);
-                    } else {
-                        const filteredItems = MAIN_GALLERY.filter(item => item.category === filter);
-                        renderGalleryItems(filteredItems);
-                    }
-                });
-            });
-        }
-
-        function renderGalleryItems(items) {
-            if (items.length === 0) {
-                galleryMainGrid.innerHTML = `
-                    <div class="no-gallery-items">
-                        <i class="far fa-images" style="font-size: 3rem; margin-bottom: 15px; color: var(--primary-blue);"></i>
-                        <p>No gallery items found for this category.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            galleryMainGrid.innerHTML = items.map(item => {
-                const category = CONFIG.categories.find(c => c.id === item.category);
-                const categoryName = category ? category.name : item.category;
-                
-                return `
-                    <div class="gallery-main-item" onclick="openGalleryItem(${item.id})">
-                        <img src="${item.image}" alt="${item.title} - ${categoryName} service" loading="lazy">
-                        <div class="gallery-main-content">
-                            <h4>${item.title}</h4>
-                            <p>${item.desc}</p>
-                        </div>
-                        <span class="gallery-category-tag">${categoryName}</span>
-                    </div>
-                `;
-            }).join('');
         }
 
         function setupSmoothScrolling() {
@@ -2968,6 +2711,31 @@
                         });
                         closeMobileMenu();
                     }
+                });
+            });
+        }
+
+        function initializeGalleryFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
                 });
             });
         }
@@ -3005,30 +2773,13 @@
         }
 
         function loadGallery(categoryId) {
-            const gallery = MAIN_GALLERY.filter(item => item.category === categoryId);
-            
-            if (gallery.length > 0) {
-                galleryContainer.innerHTML = `
-                    <div class="gallery-main-grid">
-                        ${gallery.map(item => `
-                            <div class="gallery-main-item">
-                                <img src="${item.image}" alt="${item.title}" loading="lazy">
-                                <div class="gallery-main-content">
-                                    <h4>${item.title}</h4>
-                                    <p>${item.desc}</p>
-                                </div>
-                                <span class="gallery-category-tag">${CONFIG.categories.find(c => c.id === item.category)?.name || item.category}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            } else {
-                galleryContainer.innerHTML = `
-                    <div class="no-gallery-items">
-                        <p>No gallery available for this category yet.</p>
-                    </div>
-                `;
-            }
+            // This would load gallery images from a data source
+            // For now, we'll use the existing gallery items
+            galleryContainer.innerHTML = `
+                <div class="gallery-grid">
+                    ${Array.from(document.querySelectorAll(`.gallery-item[data-category="${categoryId}"]`)).slice(0, 4).map(item => item.outerHTML).join('')}
+                </div>
+            `;
         }
 
         function switchTab(tabName) {
@@ -3043,24 +2794,41 @@
 
         function bookService(categoryId, serviceName) {
             const category = CONFIG.categories.find(c => c.id === categoryId);
-            const message = `Hello! I want to book ${serviceName} (${category.name}) from BookMyProfessionals.com. Please share availability and pricing.`;
+            const customMessages = {
+                'makeup': `Hello! I'm interested in booking ${serviceName} (${category.name}) from BookMyProfessionals.com. I need this for an upcoming event. Please share your availability, pricing, and portfolio. I'm particularly interested in bridal/party makeup services. Thank you!`,
+                'events': `Hello! I'm planning an event and interested in booking ${serviceName} (${category.name}) from BookMyProfessionals.com. The event is scheduled for [date] with approximately [number] guests. Please share your packages, availability, and customization options. Looking forward to your response!`,
+                'interior': `Hello! I'm looking to renovate my home and interested in ${serviceName} (${category.name}) from BookMyProfessionals.com. The area is approximately [size] sq ft. I'd like to discuss design concepts, materials, pricing, and timeline. Please share your portfolio and schedule a consultation. Thank you!`,
+                'home-automation': `Hello! I'm interested in making my home smarter with ${serviceName} (${category.name}) from BookMyProfessionals.com. My home is a [apartment/villa] of approximately [size] sq ft. I'd like to understand the automation options, compatible devices, installation process, and pricing. Please share your expertise!`,
+                'tutoring': `Hello! I'm looking for ${serviceName} (${category.name}) from BookMyProfessionals.com for my child who is in grade [grade]. The subject we need help with is [subject]. We prefer [online/in-person] sessions [days/times]. Please share tutor profiles, teaching methodology, and fee structure. Thank you!`,
+                'plumbing': `Hello! I need ${serviceName} (${category.name}) from BookMyProfessionals.com urgently. The issue is with [describe problem]. Please send a professional plumber as soon as possible. My address is [address]. Thank you for your prompt service!`,
+                'electrical': `Hello! I need ${serviceName} (${category.name}) from BookMyProfessionals.com. The electrical work required is [describe work]. Please share availability and estimated cost. Safety is my priority, so please send certified electricians. Thank you!`,
+                'carpentry': `Hello! I'm interested in ${serviceName} (${category.name}) from BookMyProfessionals.com. I need custom furniture [describe requirements] made from [wood type]. Please share your portfolio, material options, pricing, and delivery timeline. Looking forward to working with you!`
+            };
+            
+            const message = customMessages[categoryId] || `Hello! I want to book ${serviceName} (${category.name}) from BookMyProfessionals.com. Please share availability and pricing.`;
+            
             const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
 
-        function openGalleryItem(itemId) {
-            const item = MAIN_GALLERY.find(i => i.id === itemId);
-            if (!item) return;
+        function viewGalleryImage(category, title, description) {
+            const categoryNames = {
+                'makeup': 'Makeup & Beauty',
+                'events': 'Events & Wedding',
+                'interior': 'Interior Design',
+                'home-automation': 'Home Automation',
+                'tutoring': 'Tutoring',
+                'plumbing': 'Plumbing',
+                'electrical': 'Electrical',
+                'carpentry': 'Carpentry'
+            };
             
-            const category = CONFIG.categories.find(c => c.id === item.category);
-            const categoryName = category ? category.name : item.category;
-            
-            document.getElementById('galleryModalIcon').className = `gallery-modal-icon fas fa-image`;
-            document.getElementById('galleryModalTitle').textContent = item.title;
-            document.getElementById('galleryModalDesc').textContent = item.desc;
-            document.getElementById('galleryModalCategory').textContent = categoryName;
-            document.getElementById('galleryBookBtn').dataset.category = item.category;
-            document.getElementById('galleryBookBtn').dataset.service = item.title;
+            document.getElementById('galleryModalIcon').innerHTML = '<i class="fas fa-image"></i>';
+            document.getElementById('galleryModalTitle').textContent = title;
+            document.getElementById('galleryModalDesc').textContent = description;
+            document.getElementById('galleryModalCategory').textContent = categoryNames[category] || category;
+            document.getElementById('galleryBookBtn').dataset.category = category;
+            document.getElementById('galleryBookBtn').dataset.service = title;
             
             galleryViewModal.style.display = 'flex';
         }
@@ -3074,12 +2842,40 @@
             const category = btn.dataset.category;
             const service = btn.dataset.service;
             
-            const categoryObj = CONFIG.categories.find(c => c.id === category);
-            const message = `Hello! I want to book "${service}" (${categoryObj.name}) from BookMyProfessionals.com. I saw this in your gallery. Please share availability and pricing.`;
-            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            const customMessages = {
+                'makeup': `Hello! I saw your "${service}" work in the gallery and I'm very impressed. I'd like to book this service for an upcoming event. Please share your availability, pricing, and booking process. I'm particularly interested in the style shown in the gallery. Thank you!`,
+                'events': `Hello! I love the "${service}" work shown in your gallery. I'm planning an event and would like similar decorations/services. The event details: [date, venue, guest count]. Please share packages and availability. Can't wait to work with you!`,
+                'interior': `Hello! I'm inspired by the "${service}" project in your gallery. I'd like to discuss a similar design for my home. My space is approximately [size] sq ft. Please share your consultation process, pricing, and portfolio. The gallery work looks amazing!`,
+                'home-automation': `Hello! The "${service}" setup in your gallery caught my attention. I'm interested in implementing similar smart home solutions. My home is [type/size]. Please share the automation options, compatible devices, and installation process. The work looks professional!`,
+                'tutoring': `Hello! I saw your "${service}" tutoring sessions in the gallery. I'm looking for similar tutoring for my child in [subject/grade]. Please share tutor profiles, teaching approach, and fee structure. The interactive sessions look great!`,
+                'plumbing': `Hello! I need plumbing work similar to the "${service}" shown in your gallery. The issue is [describe problem]. Please send a professional plumber. The quality of work in your gallery is impressive!`,
+                'electrical': `Hello! I need electrical work similar to the "${service}" project in your gallery. The work required is [describe]. Please share availability and send certified electricians. Your gallery shows excellent work!`,
+                'carpentry': `Hello! I'm interested in custom furniture similar to the "${service}" piece in your gallery. I need [describe requirements]. Please share material options, pricing, and delivery timeline. The craftsmanship in your gallery is outstanding!`
+            };
             
+            const message = customMessages[category] || `Hello! I'm interested in booking the "${service}" service I saw in your gallery. Please share availability and pricing.`;
+            
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
             closeGalleryModal();
+        }
+
+        function bookFromGalleryWithMessage(category, service) {
+            const customMessages = {
+                'makeup': `Hello! I saw your "${service}" work in the gallery and I'm very impressed. I'd like to book this service for an upcoming event. Please share your availability, pricing, and booking process. I'm particularly interested in the style shown in the gallery. Thank you!`,
+                'events': `Hello! I love the "${service}" work shown in your gallery. I'm planning an event and would like similar decorations/services. The event details: [date, venue, guest count]. Please share packages and availability. Can't wait to work with you!`,
+                'interior': `Hello! I'm inspired by the "${service}" project in your gallery. I'd like to discuss a similar design for my home. My space is approximately [size] sq ft. Please share your consultation process, pricing, and portfolio. The gallery work looks amazing!`,
+                'home-automation': `Hello! The "${service}" setup in your gallery caught my attention. I'm interested in implementing similar smart home solutions. My home is [type/size]. Please share the automation options, compatible devices, and installation process. The work looks professional!`,
+                'tutoring': `Hello! I saw your "${service}" tutoring sessions in the gallery. I'm looking for similar tutoring for my child in [subject/grade]. Please share tutor profiles, teaching approach, and fee structure. The interactive sessions look great!`,
+                'plumbing': `Hello! I need plumbing work similar to the "${service}" shown in your gallery. The issue is [describe problem]. Please send a professional plumber. The quality of work in your gallery is impressive!`,
+                'electrical': `Hello! I need electrical work similar to the "${service}" project in your gallery. The work required is [describe]. Please share availability and send certified electricians. Your gallery shows excellent work!`,
+                'carpentry': `Hello! I'm interested in custom furniture similar to the "${service}" piece in your gallery. I need [describe requirements]. Please share material options, pricing, and delivery timeline. The craftsmanship in your gallery is outstanding!`
+            };
+            
+            const message = customMessages[category] || `Hello! I'm interested in booking the "${service}" service I saw in your gallery. Please share availability and pricing.`;
+            
+            const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
         }
 
         function handleInquiry(e) {
@@ -3152,7 +2948,6 @@
         function setupBlogFilters() {
             blogFilters.querySelectorAll('.blog-filter-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Update active button
                     blogFilters.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     
@@ -3177,11 +2972,9 @@
             const post = BLOG_POSTS.find(p => p.id === postId);
             if (!post) return;
             
-            // Hide blog list, show blog post
             document.getElementById('blog').style.display = 'none';
             blogPostPage.style.display = 'block';
             
-            // Update post content
             document.getElementById('postCategory').textContent = formatCategoryName(post.category);
             document.getElementById('postTitle').textContent = post.title;
             document.getElementById('postDate').textContent = formatDate(post.date);
@@ -3191,7 +2984,6 @@
             document.getElementById('postImage').alt = post.title;
             document.getElementById('postContent').innerHTML = post.content;
             
-            // Update navigation
             const currentIndex = BLOG_POSTS.findIndex(p => p.id === postId);
             const prevPost = BLOG_POSTS[currentIndex - 1];
             const nextPost = BLOG_POSTS[currentIndex + 1];
@@ -3221,22 +3013,17 @@
                 nextPostLink.style.visibility = 'hidden';
             }
             
-            // Scroll to top of blog post
             window.scrollTo({ top: blogPostPage.offsetTop - 80, behavior: 'smooth' });
             
-            // Update URL
             window.history.pushState({postId: postId}, '', `#blog?post=${postId}`);
         }
 
         function showBlogList() {
-            // Show blog list, hide blog post
             document.getElementById('blog').style.display = 'block';
             blogPostPage.style.display = 'none';
             
-            // Scroll to blog section
             window.scrollTo({ top: document.getElementById('blog').offsetTop - 80, behavior: 'smooth' });
             
-            // Update URL
             window.history.pushState({}, '', '#blog');
         }
 
@@ -3246,7 +3033,6 @@
                 showBlogList();
             });
             
-            // Handle browser back/forward
             window.addEventListener('popstate', function() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const postId = urlParams.get('post');
@@ -3263,6 +3049,7 @@
             const categoryNames = {
                 'makeup': 'Makeup & Beauty',
                 'events': 'Event Planning',
+                'interior': 'Interior Design',
                 'tutoring': 'Tutoring',
                 'home': 'Home Services',
                 'home-automation': 'Home Automation',
@@ -3279,9 +3066,10 @@
         // Make functions globally available
         window.showCategory = showCategory;
         window.bookService = bookService;
-        window.openGalleryItem = openGalleryItem;
+        window.viewGalleryImage = viewGalleryImage;
         window.closeGalleryModal = closeGalleryModal;
         window.bookFromGallery = bookFromGallery;
+        window.bookFromGalleryWithMessage = bookFromGalleryWithMessage;
         window.showBlogPost = showBlogPost;
         window.showBlogList = showBlogList;
     </script>
