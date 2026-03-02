@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- ======================================================= -->
+    <!--  Sitemap for BookMyProfessionals.com                    -->
+    <!--  Generated: 2026-02-27                                  -->
+    <!--  Priority: 1.0 = highest (home, main sections)         -->
+    <!--  Change frequencies:                                     -->
+    <!--    hourly/daily for dynamic sections (categories, blog) -->
+    <!--    monthly/yearly for static content                    -->
+    <!-- ======================================================= -->
+
+    <!-- ***** HOME PAGE ***** -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- ***** MAIN SECTIONS (anchors are used for single-page navigation) ***** -->
+    <!-- For a single-page website, we include the main sections with fragment identifiers.
+         Google handles these as separate entries. They lead users to the correct section. -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#home</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#categories</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#gallery</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#blog</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#how-it-works</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#contact</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#map</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ***** SERVICE CATEGORY PAGES (deep links via modal – treat as separate pages) ***** -->
+    <!-- Each category opens a modal with detailed services. We list them as standalone pages
+         using fragment identifiers like #category=makeup. Search engines index them as content. -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=makeup</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=events</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=interior</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=home-automation</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=tutoring</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=plumbing</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=electrical</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=carpentry</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=painting</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=cleaning</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=hvac</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=roofing</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=puja</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#category=handyman</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ***** BLOG POST PAGES (individual articles) ***** -->
+    <!-- Blog posts are the most dynamic content; update lastmod when new posts added or old ones updated -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#blog?post=1</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#blog?post=2</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#blog?post=3</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#blog?post=4</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ***** STATIC / LEGAL PAGES ***** -->
+    <!-- If these pages exist as separate HTML files or fragments, include them.
+         For a single-page site, you may have dedicated legal pages. Here we assume they exist
+         as separate files. If not, you can omit them. -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/privacy-policy.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/terms-of-service.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- ***** WHATSAPP BOOKING PAGE (if a dedicated landing exists, otherwise use main) ***** -->
+    <!-- Some sites create a dedicated "book now" page. If not, it's the same as home. -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/book-via-whatsapp</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ***** LOCATION-SPECIFIC PAGES (for SEO) ***** -->
+    <!-- Since the site serves Odisha, you might have city-specific landing pages.
+         If they exist as separate sections or files, include them. Here we list them as
+         fragments, but they could be actual pages. -->
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#bhubaneswar</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#cuttack</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#puri</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#rourkela</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#berhampur</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#sambalpur</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.bookmyprofessionals.com/#balasore</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
