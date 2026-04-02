@@ -84,10 +84,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ===== RESET & BASE STYLES (Same as Home Page) ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --navy-blue: #0B3C5D;
             --gold-accent: #D4AF37;
@@ -113,10 +120,22 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.3; }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
 
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 60px 0; }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
 
         .btn {
             display: inline-block;
@@ -125,6 +144,7 @@
             text-decoration: none;
             font-weight: 600;
             cursor: pointer;
+            border: none;
             transition: var(--transition);
             font-size: 16px;
             font-family: 'Poppins', sans-serif;
@@ -137,7 +157,10 @@
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
 
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
@@ -147,7 +170,10 @@
             gap: 8px;
         }
 
-        .btn-whatsapp:hover { background-color: #1da851; transform: translateY(-3px); }
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+        }
 
         .section-title {
             font-size: 2rem;
@@ -202,15 +228,18 @@
             transition: var(--transition);
         }
 
-        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
 
-        /* Header Navigation (Same as Home Page) */
+        /* Header Navigation - Same as Home Page */
         .header {
             background-color: var(--navy-blue);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 999;
+            transition: var(--transition);
         }
 
         .navbar {
@@ -229,17 +258,74 @@
             color: var(--white);
         }
 
-        .logo i { margin-right: 10px; font-size: 1.5rem; color: var(--gold-accent); }
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: var(--gold-accent);
+        }
 
-        .nav-links { display: flex; list-style: none; align-items: center; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; transition: var(--transition); }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold-accent); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
 
-        .dropdown { position: relative; }
-        .dropdown > a { display: flex; align-items: center; gap: 5px; pointer-events: none; }
-        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateY(0); }
-        
+        .nav-links li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1rem;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .nav-links a.active {
+            color: var(--gold-accent);
+            border-bottom: 2px solid var(--gold-accent);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            pointer-events: none;
+        }
+
+        .dropdown > a i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .dropdown:hover > a i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
         .dropdown-content {
             position: absolute;
             top: 100%;
@@ -256,7 +342,13 @@
             z-index: 100;
             border: 1px solid var(--medium-gray);
         }
-        
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         .dropdown-content a {
             display: flex;
             align-items: center;
@@ -264,13 +356,195 @@
             padding: 12px 20px;
             color: var(--text-dark);
             font-size: 0.95rem;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--light-gray);
+            pointer-events: auto;
         }
-        
-        .dropdown-content a:hover { background-color: var(--light-gray); color: var(--gold-accent); padding-left: 25px; }
-        .dropdown-content i { width: 20px; color: var(--gold-accent); }
 
-        .nav-cta { margin-left: 25px; padding: 10px 20px; font-size: 0.95rem; text-decoration: none; }
-        .mobile-whatsapp-btn, .menu-toggle { display: none; }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-gray);
+            color: var(--gold-accent);
+            padding-left: 25px;
+        }
+
+        .dropdown-content i {
+            width: 20px;
+            color: var(--gold-accent);
+            font-size: 1rem;
+        }
+
+        .nav-cta {
+            text-decoration: none;
+            margin-left: 25px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .mobile-whatsapp-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--whatsapp-green) 0%, #1da851 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            position: absolute;
+            right: 60px;
+            top: 12px;
+            z-index: 1001;
+        }
+
+        .mobile-whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .menu-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            
+            .mobile-whatsapp-btn {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--navy-blue);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .nav-links.active li {
+                margin: 5px 0;
+                width: 100%;
+            }
+            
+            .nav-links.active a {
+                display: block;
+                padding: 12px 15px;
+                border-radius: var(--border-radius);
+                width: 100%;
+                pointer-events: auto;
+                color: var(--white);
+            }
+            
+            .nav-links.active a:hover {
+                background-color: rgba(212, 175, 55, 0.2);
+                color: var(--gold-accent);
+            }
+            
+            .dropdown {
+                width: 100%;
+            }
+            
+            .dropdown > a {
+                pointer-events: auto;
+                justify-content: space-between;
+                width: 100%;
+            }
+            
+            .dropdown::before {
+                display: none;
+            }
+            
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-top: 5px;
+                display: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: var(--border-radius);
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .dropdown-content a {
+                padding: 12px 25px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: var(--white);
+            }
+            
+            .dropdown-content a:hover {
+                background-color: rgba(212, 175, 55, 0.2);
+                color: var(--gold-accent);
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 span {
+            color: var(--gold-accent);
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
 
         /* Service Cards Grid */
         .service-category {
@@ -289,10 +563,6 @@
         .category-header i {
             font-size: 2rem;
             color: var(--gold-accent);
-            background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
         
         .category-header h2 {
@@ -314,7 +584,6 @@
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             border: 1px solid var(--medium-gray);
-            position: relative;
         }
         
         .service-card:hover {
@@ -433,45 +702,6 @@
             color: var(--gold-accent);
         }
         
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .service-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta { display: none; }
-            .mobile-whatsapp-btn, .menu-toggle { display: flex; }
-            .mobile-whatsapp-btn {
-                background: var(--whatsapp-green);
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 45px;
-                height: 45px;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                right: 60px;
-                top: 12px;
-            }
-            .menu-toggle {
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: var(--white);
-                cursor: pointer;
-            }
-            .service-grid { grid-template-columns: 1fr; }
-            .category-header h2 { font-size: 1.4rem; }
-            section { padding: 40px 0; }
-            .section-title { font-size: 1.6rem; }
-        }
-        
-        @media (max-width: 480px) {
-            .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
-            .service-title { flex-direction: column; align-items: flex-start; }
-        }
-        
         /* Footer */
         .footer {
             background-color: var(--navy-blue);
@@ -493,12 +723,42 @@
             color: var(--gold-accent);
         }
         
-        .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 12px; }
-        .footer-section ul li a { color: #cbd5e1; text-decoration: none; transition: var(--transition); }
-        .footer-section ul li a:hover { color: var(--gold-accent); padding-left: 8px; }
+        .footer-section ul {
+            list-style: none;
+        }
         
-        .social-links { display: flex; gap: 15px; margin-top: 25px; }
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--gold-accent);
+            padding-left: 8px;
+        }
+        
+        .footer-section .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-section .logo i {
+            color: var(--gold-accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
         .social-links a {
             display: inline-flex;
             align-items: center;
@@ -511,7 +771,12 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        .social-links a:hover { background-color: var(--gold-accent); color: var(--navy-blue); transform: translateY(-5px); }
+        
+        .social-links a:hover {
+            background-color: var(--gold-accent);
+            color: var(--navy-blue);
+            transform: translateY(-5px);
+        }
         
         .footer-bottom {
             text-align: center;
@@ -520,9 +785,39 @@
             color: #94a3b8;
         }
         
-        .footer-links { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; }
-        .footer-links a:hover { color: var(--gold-accent); }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .category-header h2 { font-size: 1.4rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            section { padding: 40px 0; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
+        }
+        
+        @media (max-width: 480px) {
+            .service-title { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
@@ -531,14 +826,15 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Header & Navigation - Same as Home Page -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <a href="../index.html" class="logo">
+                <a href="../index.html" class="logo" aria-label="BookMyProfessionals Home">
                     <i class="fas fa-hands-helping"></i>
                     <span>BookMyProfessionals</span>
                 </a>
+                
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../about-us.html">About Us</a></li>
@@ -549,10 +845,15 @@
                             <a href="event-planners.html"><i class="fas fa-glass-cheers"></i> Event Planners</a>
                             <a href="interior-designers.html"><i class="fas fa-pencil-ruler"></i> Interior Designers</a>
                             <a href="home-automation.html"><i class="fas fa-robot"></i> Home Automation</a>
-                            <a href="solar-panel-installation.html"><i class="fas fa-solar-panel"></i> Solar Experts</a>
+                            <a href="solar-panel-installation.html"><i class="fas fa-solar-panel"></i> ☀️ SunPower Pro - Solar Experts</a>
                             <a href="tutors.html"><i class="fas fa-graduation-cap"></i> Tutors</a>
                             <a href="electricians.html"><i class="fas fa-bolt"></i> Electricians</a>
                             <a href="plumbers.html"><i class="fas fa-faucet"></i> Plumbers</a>
+                            <a href="carpenters.html"><i class="fas fa-hammer"></i> Carpenters</a>
+                            <a href="painters.html"><i class="fas fa-paint-brush"></i> Painters</a>
+                            <a href="cleaning.html"><i class="fas fa-broom"></i> Cleaning</a>
+                            <a href="hvac.html"><i class="fas fa-wind"></i> HVAC & AC Repair</a>
+                            <a href="puja.html"><i class="fas fa-hands-praying"></i> Puja Services</a>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -562,35 +863,55 @@
                             <a href="../locations/cuttack.html"><i class="fas fa-city"></i> Cuttack</a>
                             <a href="../locations/puri.html"><i class="fas fa-city"></i> Puri</a>
                             <a href="../locations/rourkela.html"><i class="fas fa-city"></i> Rourkela</a>
+                            <a href="../locations/berhampur.html"><i class="fas fa-city"></i> Berhampur</a>
+                            <a href="../locations/sambalpur.html"><i class="fas fa-city"></i> Sambalpur</a>
+                            <a href="../locations/balasore.html"><i class="fas fa-city"></i> Balasore</a>
+                            <a href="../locations/bhadrak.html"><i class="fas fa-city"></i> Bhadrak</a>
+                            <a href="../locations/jajpur.html"><i class="fas fa-city"></i> Jajpur</a>
+                            <a href="../locations/kendujhar.html"><i class="fas fa-city"></i> Kendujhar</a>
+                            <a href="../locations/dhenkanal.html"><i class="fas fa-city"></i> Dhenkanal</a>
+                            <a href="../locations/angul.html"><i class="fas fa-city"></i> Angul</a>
+                            <a href="../locations/baripada.html"><i class="fas fa-city"></i> Baripada</a>
+                            <a href="../locations/jharsuguda.html"><i class="fas fa-city"></i> Jharsuguda</a>
+                            <a href="../locations/rayagada.html"><i class="fas fa-city"></i> Rayagada</a>
                         </div>
                     </li>
                     <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
                     <li><a href="../contact-us.html">Contact Us</a></li>
+                    <li><a href="../sitemap.xml">Sitemap</a></li>
                 </ul>
-                <a href="../contact-us.html" class="btn btn-primary nav-cta"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
-                <button class="mobile-whatsapp-btn" id="mobileWhatsAppBtn"><i class="fab fa-whatsapp"></i></button>
-                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                
+                <a href="../contact-us.html" class="btn btn-primary nav-cta">
+                    <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                </a>
+                
+                <button class="mobile-whatsapp-btn" id="mobileWhatsAppBtn" title="Book via WhatsApp" aria-label="Book via WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section style="background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%); padding: 60px 0;">
+    <section class="hero-section">
         <div class="container">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h1 style="font-size: 2.5rem; color: var(--navy-blue); margin-bottom: 20px;">Professional <span style="color: var(--gold-accent);">Makeup Artists</span> in Odisha</h1>
-                <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 20px;">Book verified makeup artists, hairstylists, and mehendi artists across Bhubaneswar, Cuttack, Puri, and all cities in Odisha.</p>
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <a href="#bridal" class="btn btn-primary">Bridal Makeup</a>
-                    <a href="#party" class="btn btn-primary">Party Makeup</a>
-                    <a href="#salon" class="btn btn-primary">Salon at Home</a>
-                    <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20makeup%20artist%20in%20Odisha" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Book Now</a>
-                </div>
+            <h1>Professional <span>Makeup Artists</span> in Odisha</h1>
+            <p>Book verified makeup artists, hairstylists, and mehendi artists across Bhubaneswar, Cuttack, Puri, and all cities in Odisha.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#bridal" class="btn btn-primary">Bridal Makeup</a>
+                <a href="#party" class="btn btn-primary">Party Makeup</a>
+                <a href="#salon" class="btn btn-primary">Salon at Home</a>
+                <a href="https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20makeup%20artist%20in%20Odisha" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Book Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Bridal Makeup Section (High Ticket) -->
+    <!-- Bridal Makeup Section -->
     <section id="bridal">
         <div class="container">
             <div class="category-header">
@@ -845,42 +1166,154 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <a href="../index.html" class="logo"><i class="fas fa-hands-helping"></i><span>BookMyProfessionals</span></a>
-                    <p>Your trusted platform for booking verified professionals instantly via WhatsApp across all cities in Odisha. Founded in 2024.</p>
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>BookMyProfessionals</span>
+                    </a>
+                    <p>Your trusted platform for booking verified professionals instantly via WhatsApp, serving customers across Bhubaneswar, Cuttack, Puri, Rourkela, Jajpur, and all cities across Odisha. Founded in 2024.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/917008743587" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul><li><a href="../index.html">Home</a></li><li><a href="../about-us.html">About Us</a></li><li><a href="../contact-us.html">Contact Us</a></li><li><a href="../blog.html">Blog</a></li></ul>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about-us.html">About Us</a></li>
+                        <li><a href="../index.html#categories">Services</a></li>
+                        <li><a href="../index.html#locations">Locations</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../contact-us.html">Contact Us</a></li>
+                        <li><a href="../sitemap.xml">Sitemap</a></li>
+                    </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul><li><a href="makeup-artists.html">Makeup Artists</a></li><li><a href="event-planners.html">Event Planners</a></li><li><a href="interior-designers.html">Interior Designers</a></li><li><a href="solar-panel-installation.html">Solar Experts</a></li></ul>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../refund-policy.html">Refund Policy</a></li>
+                        <li><a href="../disclaimer.html">Disclaimer</a></li>
+                    </ul>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <ul><li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917008743587">+91 70087 43587</a></li><li><i class="fas fa-phone-alt"></i> 70087 43587</li><li><i class="far fa-envelope"></i> bookings@bookmyprofessionals.com</li></ul>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917008743587" target="_blank" rel="noopener noreferrer">+91 70087 43587</a></li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+917008743587">70087 43587</a></li>
+                        <li><i class="far fa-envelope"></i> bookings@bookmyprofessionals.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bhubaneswar, Odisha</li>
+                        <li><i class="fas fa-globe"></i> Serving all cities across Odisha</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2024 BookMyProfessionals.com. All rights reserved. Proudly serving all cities across Odisha.</p></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookMyProfessionals.com. All rights reserved. Founded in 2024. Proudly serving all cities across Odisha with all professional services.</p>
+                <div class="footer-links">
+                    <a href="../about-us.html">About Us</a>
+                    <a href="../contact-us.html">Contact Us</a>
+                    <a href="../privacy-policy.html">Privacy Policy</a>
+                    <a href="../terms-of-service.html">Terms of Service</a>
+                    <a href="../sitemap.xml">Sitemap</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
+        // ===== DOM ELEMENTS =====
         const menuToggle = document.getElementById('menuToggle');
         const mobileWhatsAppBtn = document.getElementById('mobileWhatsAppBtn');
         const navLinks = document.querySelector('.nav-links');
 
-        menuToggle?.addEventListener('click', () => navLinks.classList.toggle('active'));
-        mobileWhatsAppBtn?.addEventListener('click', () => window.open('https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20makeup%20artist%20in%20Odisha', '_blank'));
-        
-        document.querySelectorAll('.dropdown > a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    link.parentElement.classList.toggle('active');
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            handleMobileDropdowns();
+        });
+
+        function setupEventListeners() {
+            menuToggle.addEventListener('click', toggleMobileMenu);
+            mobileWhatsAppBtn.addEventListener('click', openMobileWhatsApp);
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.navbar') && !e.target.closest('.menu-toggle') && !e.target.closest('.mobile-whatsapp-btn')) {
+                    closeMobileMenu();
                 }
             });
-        });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                    document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                } else {
+                    handleMobileDropdowns();
+                }
+            });
+            
+            if (window.innerWidth <= 768) {
+                setupMobileDropdowns();
+            }
+        }
+
+        function handleMobileDropdowns() {
+            if (window.innerWidth <= 768) {
+                setupMobileDropdowns();
+            }
+        }
+
+        function setupMobileDropdowns() {
+            document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+                dropdownLink.removeEventListener('click', handleDropdownClick);
+                dropdownLink.addEventListener('click', handleDropdownClick);
+            });
+        }
+
+        function handleDropdownClick(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('active');
+                
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
+        }
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+        }
+
+        function openMobileWhatsApp() {
+            const url = `https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20makeup%20artist%20in%20Odisha`;
+            window.open(url, '_blank');
+        }
     </script>
 </body>
-                                                                                            </html>
+                            </html>
