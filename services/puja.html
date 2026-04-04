@@ -231,6 +231,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
 
         .logo {
@@ -1421,21 +1422,102 @@
     </footer>
 
     <script>
+        // ===== DOM ELEMENTS =====
         const menuToggle = document.getElementById('menuToggle');
         const mobileWhatsAppBtn = document.getElementById('mobileWhatsAppBtn');
         const navLinks = document.querySelector('.nav-links');
 
-        menuToggle?.addEventListener('click', () => navLinks.classList.toggle('active'));
-        mobileWhatsAppBtn?.addEventListener('click', () => window.open('https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20pandit%20or%20puja%20service%20in%20Odisha', '_blank'));
-        
-        document.querySelectorAll('.dropdown > a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    link.parentElement.classList.toggle('active');
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            handleMobileDropdowns();
+        });
+
+        function setupEventListeners() {
+            if (menuToggle) {
+                menuToggle.addEventListener('click', toggleMobileMenu);
+            }
+            
+            if (mobileWhatsAppBtn) {
+                mobileWhatsAppBtn.addEventListener('click', openMobileWhatsApp);
+            }
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.navbar') && !e.target.closest('.menu-toggle') && !e.target.closest('.mobile-whatsapp-btn')) {
+                    closeMobileMenu();
                 }
             });
-        });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                    document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                } else {
+                    handleMobileDropdowns();
+                }
+            });
+            
+            if (window.innerWidth <= 768) {
+                setupMobileDropdowns();
+            }
+        }
+
+        function handleMobileDropdowns() {
+            if (window.innerWidth <= 768) {
+                setupMobileDropdowns();
+            }
+        }
+
+        function setupMobileDropdowns() {
+            document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+                dropdownLink.removeEventListener('click', handleDropdownClick);
+                dropdownLink.addEventListener('click', handleDropdownClick);
+            });
+        }
+
+        function handleDropdownClick(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('active');
+                
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        function toggleMobileMenu() {
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                }
+            }
+        }
+
+        function closeMobileMenu() {
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
+        }
+
+        function openMobileWhatsApp() {
+            const url = 'https://wa.me/917008743587?text=Hello!%20I%20want%20to%20book%20a%20pandit%20or%20puja%20service%20in%20Odisha';
+            window.open(url, '_blank');
+        }
     </script>
 </body>
-  </html>
+</html> 
