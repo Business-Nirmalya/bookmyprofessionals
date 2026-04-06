@@ -953,9 +953,9 @@
             <div class="calculator-card">
                 <div class="input-group">
                     <label><i class="fas fa-user"></i> Your Full Name</label>
-                    <input type="text" id="userName" placeholder="Enter your full name (e.g., JOHN DOE)">
+                    <input type="text" id="userName" placeholder="Enter your full name (e.g., MAMATA BANERJEE)">
                     <div class="example-badge" onclick="setExampleName()">
-                        <i class="fas fa-star"></i> Try Example: INDIRA GANDHI
+                        <i class="fas fa-star"></i> Try Example: MAMATA BANERJEE
                     </div>
                 </div>
                 <button class="btn btn-numerology calc-btn" onclick="calculateNameNumerology()">
@@ -1223,7 +1223,7 @@
         };
 
         function setExampleName() {
-            document.getElementById('userName').value = 'NIRMALYA DEY';
+            document.getElementById('userName').value = 'MAMATA BANERJEE';
             calculateNameNumerology();
         }
 
@@ -1301,7 +1301,7 @@
                             <th style="padding: 10px; border: 1px solid var(--medium-gray);">Letter</th>
                             <th style="padding: 10px; border: 1px solid var(--medium-gray);">Number</th>
                             <th style="padding: 10px; border: 1px solid var(--medium-gray);">Vibration</th>
-                        </table>
+                        </tr>
                     </thead>
                     <tbody>
                         ${breakdown.map(item => `
@@ -1430,7 +1430,7 @@
                 
                 const link = document.createElement('a');
                 const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-                link.download = `Name_Numerology_Report_${currentAnalysis.name}_${timestamp}.jpg`;
+                link.download = `Name_Numerology_Report_${currentAnalysis.name.replace(/\s/g, '_')}_${timestamp}.jpg`;
                 link.href = canvas.toDataURL('image/jpeg', 0.95);
                 link.click();
                 
@@ -1450,4 +1450,4 @@
         }
     </script>
 </body>
-  </html>
+</html>
