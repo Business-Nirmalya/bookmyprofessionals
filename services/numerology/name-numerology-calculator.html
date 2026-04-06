@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
     <!-- Primary Meta Tags -->
     <title>Name Numerology Calculator | Free Name Number Analysis | BookMyProfessionals</title>
@@ -101,6 +101,19 @@
             padding: 60px 0;
         }
 
+        /* Responsive section padding */
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 30px 0;
+            }
+        }
+
         .btn {
             display: inline-block;
             padding: 14px 28px;
@@ -112,6 +125,14 @@
             font-size: 16px;
             font-family: 'Poppins', sans-serif;
             text-align: center;
+        }
+
+        /* Responsive button padding */
+        @media (max-width: 480px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
         }
 
         .btn-primary {
@@ -167,6 +188,19 @@
             border-radius: 2px;
         }
 
+        /* Responsive section title */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+
         .section-subtitle {
             text-align: center;
             color: var(--text-light);
@@ -203,6 +237,16 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
         /* Header Navigation */
         .header {
             background-color: var(--navy-blue);
@@ -234,6 +278,15 @@
             margin-right: 10px;
             font-size: 1.5rem;
             color: var(--gold-accent);
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1rem;
+            }
+            .logo i {
+                font-size: 1.2rem;
+            }
         }
 
         .nav-links {
@@ -396,6 +449,20 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
+        @media (max-width: 480px) {
+            .mobile-whatsapp-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                right: 50px;
+            }
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+        }
+
         /* Mobile Menu */
         @media (max-width: 768px) {
             .nav-links,
@@ -513,6 +580,25 @@
             margin: 0 auto;
         }
 
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 0;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Calculator Section */
         .calculator-section {
             background-color: var(--light-gray);
@@ -525,6 +611,19 @@
             box-shadow: var(--box-shadow);
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-card {
+                padding: 25px;
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-card {
+                padding: 20px;
+            }
         }
 
         .input-group {
@@ -554,6 +653,13 @@
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
 
+        @media (max-width: 480px) {
+            .input-group input {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
         .example-badge {
             display: inline-block;
             background: var(--light-gray);
@@ -578,6 +684,13 @@
             margin-top: 10px;
         }
 
+        @media (max-width: 480px) {
+            .calc-btn {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+
         /* Results Section */
         .results-section {
             margin-top: 30px;
@@ -597,6 +710,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 768px) {
+            .results-section {
+                padding: 20px;
+            }
+        }
+
         .result-number {
             text-align: center;
             margin-bottom: 30px;
@@ -613,6 +732,20 @@
             box-shadow: var(--box-shadow);
         }
 
+        @media (max-width: 768px) {
+            .name-number {
+                font-size: 2.5rem;
+                padding: 15px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name-number {
+                font-size: 2rem;
+                padding: 12px 25px;
+            }
+        }
+
         .calculation-steps {
             background: var(--light-gray);
             padding: 15px;
@@ -621,6 +754,15 @@
             font-family: monospace;
             font-size: 1rem;
             text-align: center;
+            overflow-x: auto;
+            word-break: break-all;
+        }
+
+        @media (max-width: 480px) {
+            .calculation-steps {
+                font-size: 0.85rem;
+                padding: 12px;
+            }
         }
 
         .meaning-box {
@@ -641,6 +783,15 @@
             line-height: 1.8;
         }
 
+        @media (max-width: 480px) {
+            .meaning-box {
+                padding: 18px;
+            }
+            .meaning-box p {
+                font-size: 0.9rem;
+            }
+        }
+
         .letter-breakdown {
             background: var(--white);
             padding: 20px;
@@ -652,6 +803,7 @@
         .letter-breakdown table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 300px;
         }
 
         .letter-breakdown th,
@@ -665,6 +817,17 @@
             background: var(--light-gray);
             color: var(--navy-blue);
             font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .letter-breakdown {
+                padding: 12px;
+            }
+            .letter-breakdown th,
+            .letter-breakdown td {
+                padding: 6px;
+                font-size: 0.85rem;
+            }
         }
 
         .personality-traits {
@@ -700,6 +863,22 @@
             color: var(--navy-blue);
         }
 
+        @media (max-width: 480px) {
+            .personality-traits {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .trait-card {
+                padding: 10px;
+            }
+            .trait-card i {
+                font-size: 1.3rem;
+            }
+            .trait-card h4 {
+                font-size: 0.75rem;
+            }
+        }
+
         /* Report Container */
         .report-container {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -718,6 +897,15 @@
             position: relative;
         }
 
+        @media (max-width: 768px) {
+            .report-container {
+                padding: 20px;
+            }
+            .report-content {
+                padding: 25px;
+            }
+        }
+
         .report-header {
             text-align: center;
             margin-bottom: 30px;
@@ -728,6 +916,12 @@
         .report-header h2 {
             color: var(--navy-blue);
             font-size: 1.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .report-header h2 {
+                font-size: 1.4rem;
+            }
         }
 
         .report-footer {
@@ -747,6 +941,16 @@
             flex-wrap: wrap;
         }
 
+        @media (max-width: 480px) {
+            .download-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .download-actions .btn {
+                width: 100%;
+            }
+        }
+
         /* Footer */
         .footer {
             background-color: var(--navy-blue);
@@ -761,11 +965,36 @@
             gap: 50px;
             margin-bottom: 40px;
         }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 50px 0 30px;
+                margin-top: 40px;
+            }
+            .footer-content {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+        }
         
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 25px;
             color: var(--gold-accent);
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
         }
         
         .footer-section ul {
@@ -791,6 +1020,12 @@
             display: flex;
             gap: 15px;
             margin-top: 25px;
+        }
+
+        @media (max-width: 480px) {
+            .social-links {
+                justify-content: center;
+            }
         }
         
         .social-links a {
@@ -825,6 +1060,19 @@
             gap: 25px;
             margin-top: 20px;
         }
+
+        @media (max-width: 480px) {
+            .footer-bottom {
+                padding-top: 25px;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .footer-links a {
+                font-size: 0.85rem;
+            }
+        }
         
         .footer-links a {
             color: #94a3b8;
@@ -849,16 +1097,6 @@
 
         @keyframes spin {
             to { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section h1 { font-size: 1.8rem; }
-            .section-title { font-size: 1.6rem; }
-            .calculator-card { padding: 25px; }
-            .name-number { font-size: 2rem; padding: 15px 25px; }
-            .personality-traits { grid-template-columns: 1fr; }
-            .download-actions { flex-direction: column; }
-            .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
